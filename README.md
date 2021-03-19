@@ -134,6 +134,7 @@ Friday, Saturday, Sunday
 
 ## Database Schema
 ![model](./assets/model.png)
+![ERD](./assets/ERD.png)
 
 ## Technologies and APIs
 Technologies used for App:
