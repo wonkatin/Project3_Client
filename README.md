@@ -124,13 +124,13 @@ Friday, Saturday, Sunday
 |   PUT     | /trips/:tripId                |   Edit trip info          |      /trips/:id       |
 |   Delete  | /trips/:tripId                |   Delete trip info        |      /trips/:id       |
 |   GET     | /tools                        |   Display all trip tools  |                       |
-|   POST    | /trips/:tripId/tools          |   Post trip tool          |      /trips/:tripId   |
+|   POST    | /trips/:tripId/tools          |   Create trip tool          |      /trips/:tripId   |
 |   PUT     | /trips/:tripId/tools          |   Edit all trip tools     |      /trips/:tripId   |
 |   DELETE  | /trips/:tripId/tools          |   Delete trip tool        |      /trips/:tripId   |
-|   GET     | /trips/:tripId/tools/:toolId  |   Delete trip tool        |      /trips/:tripId   |
-|   POST    | /trips/:tripId/tools/:toolId  |   Delete trip tool        |      /trips/:id       |
-|   PUT     | /trips/:tripId/tools/:toolId  |   Delete trip tool        |      /trips/:id       |
-|   DELETE  | /trips/:tripId/tools/:toolId  |   Delete trip tool        |      /trips/:id       |
+|   GET     | /trips/:tripId/tools/:toolId  |   Display trip tool       |      /trips/:tripId   |
+|   POST    | /trips/:tripId/tools/:toolId  |   Create trip tool          |      /trips/:id/tools |
+|   PUT     | /trips/:tripId/tools/:toolId  |   Edit trip tool          |      /trips/:id/tools |
+|   DELETE  | /trips/:tripId/tools/:toolId  |   Delete trip tool        |      /trips/:id/tools |
 
 ## Database Schema
 ![model](./assets/model.png)
