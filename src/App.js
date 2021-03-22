@@ -1,3 +1,5 @@
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import './App.css';
 import Welcome from './components/Welcome'
 import Navbar from './components/Navbar'
@@ -8,15 +10,33 @@ import Trip from './components/trip-folder/Trip'
 
 function App() {
   return (
-    <div className="App">
-      <Welcome />
-      <Navbar />
-      <Login />
-      <Profile />
-      <Register />
-      <Trip />
-    </div>
-  );
+      <Router>
+        <header>
+          <Navbar />
+        </header>
+
+        <div className="App">
+          <Switch>
+            <Route exact path='/' component={ Welcome } />
+            
+            <Route 
+              path='/register'
+              render={ (props) => <Register {...props} currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> }
+            />
+
+            <Route
+              path="/login"
+              render={ (props) => <Login {...props} currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> }
+            />
+
+            <Route
+              path="/profile"
+              render={ (props) => <Profile {...props} currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> }
+            />
+          </Switch>
+        </div>
+      </Router>
+  )
 }
 
 export default App;
