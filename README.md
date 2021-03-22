@@ -133,8 +133,8 @@ Friday, Saturday, Sunday
 |   DELETE  | /trips/:tripId/tools/:toolId  |   Delete trip tool        |      /trips/:id/tools |
 
 ## Database Schema
-![model](./assets/model.png)
-![ERD](./assets/ERD.png)
+![model](./public/assets/model.png)
+![ERD](./public/assets/ERD.png)
 
 ## Technologies and APIs
 Technologies used for App:
@@ -152,11 +152,11 @@ https://openweathermap.org/current#min
 & TBD
 
 ## Wireframes 
-![wireframe1](./assets/wireframe1.png)
-![wireframe2](./assets/wireframe2.png)
-![wireframe3](./assets/wireframe3.png)
-![wireframe4](./assets/wireframe4.png)
+![wireframe1](./public/assets/wireframe1.png)
+![wireframe2](./public/assets/wireframe2.png)
+![wireframe3](./public/assets/wireframe3.png)
+![wireframe4](./public/assets/wireframe4.png)
 
 
-![groupnamelogo](./assets/groupnamelogo.png)
+![groupnamelogo](./public/assets/groupnamelogo.png)
 
