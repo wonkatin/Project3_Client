@@ -5,8 +5,8 @@ export default function Navbar(props) {
             <Link className="nav-link" to='/'>
                 <span>welcome link</span>
             </Link>
-            <Link className="nav-link" to='/profile'>
-                <span>profile link</span>
+            <Link className="nav-link" to='/account'>
+                <span>account link</span>
             </Link>
             <Link className="nav-link" to='/register'>
                 <span>register link</span>
