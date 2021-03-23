@@ -41,17 +41,17 @@ function App() {
             <Route exact path='/' component={ Welcome } />
             
             <Route 
-              path='/register'
+              path='/users/register'
               render={ (props) => <Register {...props} currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> }
             />
 
             <Route
-              path="/login"
+              path="/users/login"
               render={ (props) => <Login {...props} currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> }
             />
 
             <Route 
-              path='/account'
+              path='/users/${userId}/account'
               render={ (props) => currentUser 
                 ? <Account {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> 
                 : <Redirect to='/login' /> }

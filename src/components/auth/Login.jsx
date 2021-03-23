@@ -18,7 +18,7 @@ export default function Login(props) {
                 email: email,
                 password: password
             }
-            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/user/login`, requestBody)
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/login`, requestBody)
             const { token } = response.data
             //save the response jwt in local storage
             localStorage.setItem('jwtToken', token)
@@ -34,7 +34,7 @@ export default function Login(props) {
         }
     }
     //check to see if user is logged in and redirect to profile
-    if(props.currentUser) return <Redirect to='/account' component={ Account } currentUser={ props.currentUser } />
+    if(props.currentUser) return <Redirect to='/' component={ Account } currentUser={ props.currentUser } />
     
     return(
         <div>

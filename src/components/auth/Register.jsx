@@ -21,7 +21,7 @@ export default function Register(props) {
             password: password
           }
 
-          const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/register`, requestBody)
+          const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/register`, requestBody)
 
           const { token } = response.data
           localStorage.setItem('jwtToken', token)
@@ -38,7 +38,7 @@ export default function Register(props) {
     }
 }
 
-if(props.currentUser) return <Redirect to='/account' component={ Account } currentUser={ props.currentUser } />
+if(props.currentUser) return <Redirect to='/' component={ Account } currentUser={ props.currentUser } />
 
     return(
         <div>
