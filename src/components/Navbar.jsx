@@ -2,19 +2,21 @@ import { Link } from 'react-router-dom'
 export default function Navbar(props) {
     return(
         <nav>
-            <Link to='/'>
-                <h5>welcome link</h5>
+            <Link className="nav-link" to='/'>
+                <span>welcome link</span>
             </Link>
-            <Link to='/profile'>
-                <h5>profile link</h5>
+            <Link className="nav-link" to='/profile'>
+                <span>profile link</span>
             </Link>
-            <Link to='/register'>
-                <h5>register link</h5>
+            <Link className="nav-link" to='/register'>
+                <span>register link</span>
             </Link>
-            <Link to='/login'>
-                <h5>login link</h5>
+            <Link className="nav-link" to='/login'>
+                <span>login link</span>
             </Link>
-
+            <Link className="nav-link" to='/'>
+                <span onClick={props.handleLogout}>log out</span>
+            </Link>
         </nav>
     )
 }

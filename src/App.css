@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +35,24 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+
+header {
+  background-color: rgba(151, 192, 255, 0.8);
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  transition-duration: 0.4s;
+  padding: 10px;
+  font-family: sans-serif;
+}
+
+.nav-link:hover {
+  color: #9661ff;
 }
