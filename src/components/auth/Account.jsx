@@ -1,18 +1,16 @@
-import Trip from '../trip-folder/Trip'
-
-export default function Profile(props) {
+export default function Account() {
     return(
-        <div className="background-trips">
-            <div className="profile-card">
-                <img src="../img/chris.jpg" alt="chris" className="profile-img"/>
-            </div>
+        <div class="background-trips">
+            <div class="profile-card">
+                <img src="../img/chris.jpg" alt="chris" class="profile-img"></img>
+            <div class="account-name">
             <h1>Chris Spicer</h1>
             <h4>Portland, OR</h4>
-            <div>
-                <img src="../img/App-logo.png" alt="trip tracker logo" className="small-logo"/>
             </div>
-            <div className="account-form">
-                <form onSubmit={handleUpdate} className="update-info">
+                 <img src="../img/App-logo.png" alt="trip tracker logo" class="small-logo"></img>
+            </div>
+            <div class="account-form">
+                <form action="/html/trips.html" class="update-info">
                     <div>
                         <label for="first-name-input">First Name</label>
                         <input type="text" placeholder="First Name" id="first-name-input"/>
@@ -23,7 +21,6 @@ export default function Profile(props) {
                         <label for="profile-image-input">Profile Image</label>
                         <input type="text" placeholder="Profile Image" id="profile-image-input"/>
                     </div>
-
                     <div>
                         <label for="email-input">Email Address</label>
                         <input type="text" placeholder="Email Address" id="email-input"/>
@@ -35,7 +32,7 @@ export default function Profile(props) {
                         <input type="submit" value="Update Profile" id="update-button"/>
                     </div>
                 </form>
-                <form onSubmit={handleDelete}>
+                <form action="/html/homepage.html">
                     <input type="submit" value="Delete Account"/>
                 </form>
             </div>

@@ -23,7 +23,7 @@ header {
 }
 
 .background {
-  background-image: url("../img/cliffs.jpg");
+  background-image: url("./img/cliffs.jpg");
   background-size: cover;
   box-shadow: inset 100em 100em rgba(255, 255, 255, 0.4);
   height: 100vh;
@@ -80,7 +80,7 @@ header {
 }
 
 .background-trips {
-  background-image: url("../img/pink-sky.jpeg");
+  background-image: url("./img/pink-sky.jpeg");
   background-size: cover;
   box-shadow: inset 100em 100em rgba(255, 255, 255, 0.4);
   height: 100vh;

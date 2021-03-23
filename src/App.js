@@ -5,7 +5,7 @@ import './App.css';
 import Welcome from './components/Welcome'
 import Navbar from './components/Navbar'
 import Login from './components/auth/Login'
-import Profile from './components/auth/Profile'
+import Account from './components/auth/Account'
 import Register from './components/auth/Register'
 
 
@@ -41,19 +41,19 @@ function App() {
             <Route exact path='/' component={ Welcome } />
             
             <Route 
-              path='/register'
+              path='/users/register'
               render={ (props) => <Register {...props} currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> }
             />
 
             <Route
-              path="/login"
+              path="/users/login"
               render={ (props) => <Login {...props} currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> }
             />
 
             <Route 
-              path='/profile'
+              path='/users/${userId}/account'
               render={ (props) => currentUser 
-                ? <Profile {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> 
+                ? <Account {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> 
                 : <Redirect to='/login' /> }
             />
           </Switch>

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import { Redirect } from 'react-router-dom'
-import Profile from './Profile'
+import Account from './Account'
 
 export default function Register(props) {
     const [username, setUsername] = useState('')
@@ -21,7 +21,7 @@ export default function Register(props) {
             password: password
           }
 
-          const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/register`, requestBody)
+          const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/register`, requestBody)
 
           const { token } = response.data
           localStorage.setItem('jwtToken', token)
@@ -38,7 +38,7 @@ export default function Register(props) {
     }
 }
 
-if(props.currentUser) return <Redirect to='/profile' component={ Profile } currentUser={ props.currentUser } />
+if(props.currentUser) return <Redirect to='/' component={ Account } currentUser={ props.currentUser } />
 
     return(
         <div>

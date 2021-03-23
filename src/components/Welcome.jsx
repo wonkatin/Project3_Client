@@ -4,7 +4,7 @@ export default function Welcome() {
     return(
         <div className="background"> {/* Need to add Router tags */}
             <div className="homepage-logo">
-                <img src="../img/App-logo.png" alt="trip tracker logo"></img>
+                <img src="../img/App-logo.png" alt="trip tracker logo"/>
             </div>
             <div className="sign-up-buttons">
                 <a href="./register.html" className="button">New User</a> {/* Need to add Link */}
