@@ -2,7 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import { Redirect } from 'react-router-dom'
-import Profile from './Profile'
+import Account from './Account'
 
 export default function Register(props) {
     const [username, setUsername] = useState('')
@@ -38,7 +38,7 @@ export default function Register(props) {
     }
 }
 
-if(props.currentUser) return <Redirect to='/profile' component={ Profile } currentUser={ props.currentUser } />
+if(props.currentUser) return <Redirect to='/account' component={ Account } currentUser={ props.currentUser } />
 
     return(
         <div>

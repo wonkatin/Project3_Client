@@ -1,6 +1,4 @@
-import Trip from '../trip-folder/Trip'
-
-export default function Profile() {
+export default function Account() {
     return(
         <div class="background-trips">
             <div class="profile-card">

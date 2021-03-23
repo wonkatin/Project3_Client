@@ -5,7 +5,7 @@ import './App.css';
 import Welcome from './components/Welcome'
 import Navbar from './components/Navbar'
 import Login from './components/auth/Login'
-import Profile from './components/auth/Profile'
+import Account from './components/auth/Account'
 import Register from './components/auth/Register'
 
 
@@ -51,9 +51,9 @@ function App() {
             />
 
             <Route 
-              path='/profile'
+              path='/account'
               render={ (props) => currentUser 
-                ? <Profile {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> 
+                ? <Account {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> 
                 : <Redirect to='/login' /> }
             />
           </Switch>

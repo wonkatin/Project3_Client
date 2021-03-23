@@ -2,7 +2,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import { Redirect } from 'react-router-dom'
-import Profile from './Profile'
+import Account from './Account'
 import { Link } from 'react-router-dom'
 
 export default function Login(props) {
@@ -34,7 +34,7 @@ export default function Login(props) {
         }
     }
     //check to see if user is logged in and redirect to profile
-    if(props.currentUser) return <Redirect to='/profile' component={ Profile } currentUser={ props.currentUser } />
+    if(props.currentUser) return <Redirect to='/account' component={ Account } currentUser={ props.currentUser } />
     
     return(
         <div>
