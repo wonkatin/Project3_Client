@@ -4,20 +4,48 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="stylesheet" href="../styles/styles.css">
   <title>Travel Tracker</title>
 </head>
 <body>
-  <nav>
-    <h5>Nav Bar</h5>
-  </nav>
-  <header>
-    <h1>User Profile</h1>
-  </header>
-  <div>
-    <h3>Sign up</h3>
-    <form action="">
-    </form>
+  <div class="background-trips">
+    <nav>
+      <a href="./homepage.html">Home</a>
+      <a href="./trips.html">Trips</a>
+      <a href="./about.html">About</a>
+      <a href="./login.html">Login</a>
+      <a href="./register.html">Register</a>
+      <a href="./account.html">Account</a>
+    </nav>
+    
+    <div class="profile-card">
+      <img src="../img/chris.jpg" alt="chris" class="profile-img">
+      <div class="account-name">
+        <h1>Chris Spicer</h1>
+        <h4>Portland, OR</h4>
+      </div>
+      <img src="../img/App-logo.png" alt="trip tracker logo" class="small-logo">
+    </div>
+    <div class="account-form">
+      <form action="/html/trips.html" class="update-info">
+        <label for="first-name-input">First Name</label>
+        <input type="text" placeholder="First Name" id="first-name-input">
+        <label for="last-name-input">Last Name</label>
+        <input type="text" placeholder="Last Name" id="last-name-input">
+        <label for="username-input">Username</label>
+        <input type="text" placeholder="Username" id="username-input">
+        <label for="email-input">Email Address</label>
+        <input type="text" placeholder="Email Address" id="email-input">
+        <label for="">Other</label>
+        <input type="text" placeholder="" id="">
+        <label for="">Other</label>
+        <input type="text" placeholder="" id="">
+        <input type="submit">
+      </form>
+      <!-- <form action="/html/homepage.html">
+        <input type="submit" value="Delete Account">
+      </form> -->
+    </div>
   </div>
 </body>
 </html>
