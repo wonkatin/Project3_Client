@@ -1,4 +1,4 @@
-import Trip from './components/trip-folder/Trip'
+import Trip from '../trip-folder/Trip'
 
 export default function Profile() {
     return(
