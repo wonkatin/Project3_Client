@@ -12,7 +12,7 @@ export default function Account(props) {
                 <img src="../img/App-logo.png" alt="trip tracker logo" className="small-logo"/>
             </div>
             <div className="account-form">
-                <form onSubmit={handleUpdate} className="update-info">
+                <form onSubmit={props.handleUpdate} className="update-info">
                     <div>
                         <label for="first-name-input">First Name</label>
                         <input type="text" placeholder="First Name" id="first-name-input"/>
@@ -35,7 +35,7 @@ export default function Account(props) {
                         <input type="submit" value="Update Account" id="update-button"/>
                     </div>
                 </form>
-                <form onSubmit={handleDelete}>
+                <form onSubmit={props.handleDelete}>
                     <input type="submit" value="Delete Account"/>
                 </form>
             </div>

@@ -153,3 +153,6 @@ header {
   margin-bottom: 5px;
 }
 
+.hidden-inputs{
+  display: none;
+}
