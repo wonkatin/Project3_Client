@@ -17,6 +17,8 @@ h1 {
 .background-trips {
   background-image: url("../img/pink-sky.jpeg");
   background-size: cover;
+  background-repeat: repeat;
+  background-attachment: fixed;
   box-shadow: inset 100em 100em rgba(255, 255, 255, 0.4);
   height: 100vh;
 }
@@ -192,3 +194,32 @@ nav a:hover {
   margin-bottom: 5px;
 }
 
+.detail-container {
+margin: 40px;
+}
+
+.detail-header {
+  height: 150px;
+  background-image: url('../img/tropical.jpeg');
+  background-size: cover;
+  background-position: bottom;
+  border: 4px solid rgb(70, 70, 70);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: inset 100em 100em rgba(255, 255, 255, 0.2);
+}
+
+.tool-container {
+  background-color: rgb(255, 255, 255, .4);
+  border: 4px solid rgb(70, 70, 70);
+  border-top: 1px solid rgb(70, 70, 70);
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.tool {
+  border: 2px solid rgb(70, 70, 70);
+  height: 300px;
+  width: 45%;
+}
