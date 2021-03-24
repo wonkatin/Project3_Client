@@ -24,10 +24,10 @@ export default function Trips(props) {
     
     return(
         <Router>
-            <div class="background-trips">
+            <div className="background-trips">
                 <h1>My Trips</h1>
                 <Link to="/users/${userId}/trips/${tripId}" className="button">Add New Trip</Link>
-                <div class="trip-container">
+                <div className="trip-container">
                     {AllTrips}
                 </div>
             </div>
