@@ -84,7 +84,6 @@ if(props.currentUser) return <Redirect to='/' component={ Account } currentUser=
 
 
 
-
                 <div className="hidden-inputs">
                 <input
                     id='firstName-input'
