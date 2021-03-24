@@ -1,16 +1,18 @@
-export default function Account() {
+import Trip from '../trip-folder/Trip'
+
+export default function Account(props) {
     return(
-        <div class="background-trips">
-            <div class="profile-card">
-                <img src="../img/chris.jpg" alt="chris" class="profile-img"></img>
-            <div class="account-name">
+        <div className="background-trips">
+            <div className="account-card">
+                <img src="../img/chris.jpg" alt="chris" className="account-img"/>
+            </div>
             <h1>Chris Spicer</h1>
             <h4>Portland, OR</h4>
+            <div>
+                <img src="../img/App-logo.png" alt="trip tracker logo" className="small-logo"/>
             </div>
-                 <img src="../img/App-logo.png" alt="trip tracker logo" class="small-logo"></img>
-            </div>
-            <div class="account-form">
-                <form action="/html/trips.html" class="update-info">
+            <div className="account-form">
+                <form onSubmit={handleUpdate} className="update-info">
                     <div>
                         <label for="first-name-input">First Name</label>
                         <input type="text" placeholder="First Name" id="first-name-input"/>
@@ -18,9 +20,10 @@ export default function Account() {
                         <input type="text" placeholder="Last Name" id="last-name-input"/>
                         <label for="username-input">Username</label>
                         <input type="text" placeholder="Username" id="username-input"/>
-                        <label for="profile-image-input">Profile Image</label>
-                        <input type="text" placeholder="Profile Image" id="profile-image-input"/>
+                        <label for="account-image-input">Account Image</label>
+                        <input type="text" placeholder="Account Image" id="account-image-input"/>
                     </div>
+
                     <div>
                         <label for="email-input">Email Address</label>
                         <input type="text" placeholder="Email Address" id="email-input"/>
@@ -29,10 +32,10 @@ export default function Account() {
                         <label for="dob-input">Date of Birth</label>
                         <input type="text" placeholder="Date of Birth" id="dob-input"/>
                         <p></p>
-                        <input type="submit" value="Update Profile" id="update-button"/>
+                        <input type="submit" value="Update Account" id="update-button"/>
                     </div>
                 </form>
-                <form action="/html/homepage.html">
+                <form onSubmit={handleDelete}>
                     <input type="submit" value="Delete Account"/>
                 </form>
             </div>

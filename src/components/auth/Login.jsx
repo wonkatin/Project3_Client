@@ -33,7 +33,7 @@ export default function Login(props) {
            }
         }
     }
-    //check to see if user is logged in and redirect to profile
+    //check to see if user is logged in and redirect to account
     if(props.currentUser) return <Redirect to='/' component={ Account } currentUser={ props.currentUser } />
     
     return(
