@@ -1,14 +1,19 @@
-import { Link } from 'react-router-dom'
+import { RouterBrowser as Router, Link } from 'react-router-dom'
+
+// Need:
+  // Figure out how to set DB image as background image.
 
 export default function TripCard(props) {
   return(
-    <div> {/* Need to add Router tags */}
-        <a href="./trip-details.html"> {/* Need Link here */}
-          <div class="trip-card">
-            <h2>{props.trips.city}</h2> {/* Is this correct? */}
-            <h4>{props.trips.date}</h4> {/* Is this correct? Is there a way to display as just year & month? */}
-          </div>
-        </a>
-    </div>
+    <Router>
+      <Link to="/users/${userId}/trips/${tripId}">
+            <div className="trip-card">
+              <h2>{props.name}</h2>
+              <h4>{props.location}</h4>
+              <h4>{props.fromDate}</h4>
+              <img src={props.img} alt={props.location}/>
+            </div>
+      </Link>
+    </Router>
   )
 }

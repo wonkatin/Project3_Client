@@ -5,9 +5,6 @@ import LodgingTool from '../tools/LodgingTool'
 import NoteTool from '../tools/NoteTool'
 import ScheduleTool from '../tools/ScheduleTool'
 
-
-
-
 export default function TripDetail(props) {
     return(
         <div>
@@ -16,8 +13,10 @@ export default function TripDetail(props) {
             <div className="detail-container">
                 
                 <div className="detail-header">
-                    <h1>{props.trip.city}</h1> {/* Is this correct? */}
-                    <h5>{props.trip.date}</h5> {/* Is this correct? Is there a way to display as just year & month? */}
+                    <h1>{props.name}</h1>
+                    <h4>{props.location}</h4>
+                    <h5>{props.fromDate}</h5>
+                    <img src={props.img} alt={props.location}/>
                 </div>
                 
                 <div className="tool-container">
