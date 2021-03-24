@@ -5,10 +5,13 @@ import LodgingTool from '../tools/LodgingTool'
 import NoteTool from '../tools/NoteTool'
 import ScheduleTool from '../tools/ScheduleTool'
 
-export default function TripDetailPage(props) {
+
+
+
+export default function TripDetail(props) {
     return(
         <div>
-            <h1>Hello from TripDetailPage</h1>
+            <h1>Hello from TripDetail</h1>
 
             <div className="detail-container">
                 

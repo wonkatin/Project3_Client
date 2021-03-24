@@ -1,18 +1,20 @@
-import { RouterBrowser as Router, Link, Route } from 'react-router-dom'
+import { RouterBrowser as Router, Link } from 'react-router-dom'
 
 export default function Welcome() {
     return(
-        <div className="background"> {/* Need to add Router tags */}
-            <div className="homepage-logo">
-                <img src="../img/App-logo.png" alt="trip tracker logo"/>
+        <Router>
+            <div className="background">
+                <div className="homepage-logo">
+                    <img src="../img/App-logo.png" alt="trip tracker logo"/>
+                </div>
+                <div className="sign-up-buttons">
+                    <Link to="/users/register" className="button">New User</Link>
+                    <Link to="/users/login" className="button">Existing User</Link>
+                </div>
+                <div className="learn-link">
+                    <Link to="/about">Learn More</Link>
+                </div>
             </div>
-            <div className="sign-up-buttons">
-                <a href="./register.html" className="button">New User</a> {/* Need to add Link */}
-                <a href="./login.html" className="button">Existing User</a> {/* Need to add Link */}
-            </div>
-            <div className="learn-link">
-                <a href="./about.html">Learn More</a> {/* Need to add Link */}
-            </div>
-        </div>  
+        </Router>
     )
 }
