@@ -9,6 +9,11 @@ export default function Register(props) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [message, setMessage] = useState('')
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [city, setCity] = useState('')
+    const [DOB, setDOB] = useState('')
+    const [img, setImg] = useState('')
 
     const handleSubmit = async e => {
         try {
@@ -76,6 +81,47 @@ if(props.currentUser) return <Redirect to='/' component={ Account } currentUser=
                     value={password}
                 />
 
+
+
+
+
+                <div className="hidden-inputs">
+                <input
+                    id='firstName-input'
+                    type='text'
+                    placeholder='your firstName'
+                    onChange={e => setFirstName(e.target.value)}
+                    value={firstName}
+                />
+                <input
+                    id='lastName-input'
+                    type='text'
+                    placeholder='your lastName'
+                    onChange={e => setLastName(e.target.value)}
+                    value={lastName}
+                />
+                <input
+                    id='city-input'
+                    type='text'
+                    placeholder='your city'
+                    onChange={e => setCity(e.target.value)}
+                    value={city}
+                />
+                <input
+                    id='DOB-input'
+                    type='text'
+                    placeholder='your DOB'
+                    onChange={e => setDOB(e.target.value)}
+                    value={DOB}
+                />
+                <input
+                    id='img-input'
+                    type='text'
+                    placeholder='your img'
+                    onChange={e => setImg(e.target.value)}
+                    value={img}
+                />
+                </div>
                 <input 
                     type='submit'
                     value='Register'
