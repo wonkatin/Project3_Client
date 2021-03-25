@@ -156,6 +156,7 @@ https://openweathermap.org/current#min
 ![wireframe2](./public/assets/wireframe2.png)
 ![wireframe3](./public/assets/wireframe3.png)
 ![wireframe4](./public/assets/wireframe4.png)
+![wireframe5](./public/assets/wireframe5.png)
 
 
 ![groupnamelogo](./public/assets/groupnamelogo.png)
