@@ -1,4 +1,4 @@
-import { RouterBrowser as Router, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 // Need:
   // Figure out how to set DB image as background image.
@@ -6,7 +6,7 @@ import { RouterBrowser as Router, Link } from 'react-router-dom'
 export default function TripCard(props) {
   return(
     <Router>
-      <Link to="/users/${userId}/trips/${tripId}">
+      <Link to={`/users/${props.currentUser.id}/trips/${tripId}`}>
             <div className="trip-card">
               <h2>{props.name}</h2>
               <h4>{props.location}</h4>
