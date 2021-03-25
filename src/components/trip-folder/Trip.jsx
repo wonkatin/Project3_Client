@@ -1,4 +1,4 @@
-import { RouterBrowser as Router, Link, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Link } from "react-router-dom"
 import TripCard from './TripCard.jsx'
 
 // Needs:
@@ -26,7 +26,7 @@ export default function Trips(props) {
         <Router>
             <div className="background-trips">
                 <h1>My Trips</h1>
-                <Link to="/users/${userId}/trips/${tripId}" className="button">Add New Trip</Link>
+                <Link to={`/users/${props.currentUser.id}/trips/${tripId}`} className="button">Add New Trip</Link>
                 <div className="trip-container">
                     {AllTrips}
                 </div>

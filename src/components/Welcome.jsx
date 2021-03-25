@@ -1,11 +1,12 @@
-import { RouterBrowser as Router, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Link } from 'react-router-dom'
+import img from '../img/App-logo.png'
+
 
 export default function Welcome() {
     return(
-        <Router>
             <div className="background">
                 <div className="homepage-logo">
-                    <img src="../img/App-logo.png" alt="trip tracker logo"/>
+                    <img src={img} alt="trip tracker logo"/>
                 </div>
                 <div className="sign-up-buttons">
                     <Link to="/users/register" className="button">New User</Link>
@@ -15,6 +16,5 @@ export default function Welcome() {
                     <Link to="/about">Learn More</Link>
                 </div>
             </div>
-        </Router>
     )
 }

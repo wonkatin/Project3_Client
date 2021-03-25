@@ -1,6 +1,8 @@
-import Trip from '../trip-folder/Trip'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
+// import chrisImg from '../../../img/chris.png'
+import img from '../../img/App-logo.png'
+// import Trip from '../trip-folder/Trip'
 
 export default function Account(props) {
 
@@ -34,14 +36,14 @@ export default function Account(props) {
     return(
         <div className="background-trips">
             <div className="account-card">
-                <img src="../img/chris.jpg" alt="chris" className="account-img"/>
+                <img src='chris.png' alt="chris img" className="account-img"/>
             </div>
 
-            <h1>{props.currentUser.username}</h1> 
-            <h4>Portland, OR</h4> 
+            <h1>Hello {props.currentUser.username} !</h1> 
+            {/* <h4>Portland, OR</h4>  */}
 
             <div>
-                <img src="../img/App-logo.png" alt="trip tracker logo" className="small-logo"/>
+                <img src={img} alt="trip tracker logo" className="small-logo" />
             </div>
 
             <div className="account-form">

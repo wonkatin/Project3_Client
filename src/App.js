@@ -7,7 +7,7 @@ import Navbar from './components/Navbar'
 import Login from './components/auth/Login'
 import Account from './components/auth/Account'
 import Register from './components/auth/Register'
-
+import About from './components/About'
 
 function App() {
   
@@ -30,6 +30,7 @@ function App() {
       setCurrentUser(null)
     }
   }
+
   return (
       <Router>
         <header>
@@ -51,11 +52,19 @@ function App() {
             />
 
             <Route 
-              path='/users/${userId}/account'
-              render={ (props) => currentUser 
-                ? <Account {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> 
-                : <Redirect to='/login' /> }
+                path='/about' component={ About }
             />
+
+            {currentUser &&
+             <Route 
+              // path='/users/${userId}/account'
+              path={`/users/${currentUser.id}/account`}
+              render={ (props) =>
+                <Account {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> 
+              }
+            />
+            }
+
           </Switch>
         </div>
       </Router>

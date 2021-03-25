@@ -1,35 +1,39 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 export default function Navbar(props) {
-    const loggedIn = (
-        <>
+    
+
+
+    // const loggedIn = (
+    //     <>
 
             {/* Check to make sure all links are working */}
 
-            <Link className="nav-link" to="users/${userId}/trips">
+            {/* <Link className="nav-link" to={`/users/${props.currentUser.id}/trips`}>
                 <span>Trips</span>
-                </Link>
+                </Link> */}
 
-            <Link className="nav-link" to='/'>
+            {/* <Link className="nav-link" to='/'>
                 <span onClick={props.handleLogout}>Log Out</span>
-            </Link>
+            </Link> */}
 
-            <Link className="nav-link" to='users/${userId}/account'>
+            {/* <Link className="nav-link" to={`/users/${props.currentUser.id}/account`}>
                 <span>Account</span>
-            </Link>  
-        </>
-    )
+            </Link>   */}
+    //     </>
+    // )
 
-    const loggedOut = (
-        <>
-            <Link className="nav-link" to='/users/register'>
-                <span>register link</span>
-            </Link>
+    // const loggedOut = (
+    //     <>
+    //         <Link className="nav-link" to='/users/register'>
+    //             <span>register link</span>
+    //         </Link>
 
-            <Link className="nav-link" to='/users/login'>
-                <span>login link</span>
-            </Link>
-        </>
-    )
+    //         <Link className="nav-link" to='/users/login'>
+    //             <span>login link</span>
+    //         </Link>
+    //     </>
+    // )
     
     return(
         <nav>
@@ -37,7 +41,34 @@ export default function Navbar(props) {
                 <span>About</span>
             </Link>
 
-            {props.currentUser ? loggedIn : loggedOut}
+            {/* Check to make sure all links are working */}
+
+
+            {props.currentUser 
+            ?  <>
+                <Link className="nav-link" to={`/users/${props.currentUser.id}/trips`}>
+                    <span>Trips</span>
+                </Link>
+
+                <Link className="nav-link" to='/'>
+                    <span onClick={props.handleLogout}>Log Out</span>
+                </Link>
+
+                <Link className="nav-link" to={`/users/${props.currentUser.id}/account`}>
+                    <span>Account</span>
+                </Link>  
+              </> 
+
+            : <>
+                <Link className="nav-link" to='/users/register'>
+                    <span>register link</span>
+                </Link>
+
+                <Link className="nav-link" to='/users/login'>
+                    <span>login link</span>
+                </Link>
+              </>
+            }
         </nav>
     )
 }
