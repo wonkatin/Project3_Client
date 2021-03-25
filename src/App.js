@@ -52,7 +52,8 @@ function App() {
             />
 
             <Route 
-                path='/about' component={ About }
+                path='/about'
+                render={ (props) => <About {...props} currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> }
             />
 
             {currentUser &&

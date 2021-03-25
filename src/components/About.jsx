@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function About(props) {
+  // console.log(props);
   return(
 
     // Needs:
@@ -19,8 +20,9 @@ export default function About(props) {
             From your flight info to your packing list, Trip Tracker will help you stay organized
             and eliminate the dreaded feeling of leaving behind something important.
           </p>
-
-          {/* <Link to={`/users/${props.currentUser.id}/trips`} className="button">Get Trippin'!</Link> */}
+         
+          <Link to={`/users/${props.currentUser.id}/trips`} className="button">Get Trippin'!</Link>
+          {/* <Link to='/users/${userId}/trips' className="button">Get Trippin'!</Link> */}
 
           <h2>Frequently Asked Questions</h2>
           <p>FAQ info</p>
