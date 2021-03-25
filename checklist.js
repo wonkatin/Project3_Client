@@ -362,5 +362,10 @@
       "itemName": "games",
       "checked": false,
       "category": "miscellaneous"  
+    },
+    {
+      "itemName": "pack",
+      "checked": false,
+      "category": "to-do"  
     }
   ]
