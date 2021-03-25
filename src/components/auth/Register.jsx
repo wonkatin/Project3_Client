@@ -12,14 +12,13 @@ export default function Register(props) {
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [city, setCity] = useState('')
-    const [DOB, setDOB] = useState('')
     const [img, setImg] = useState('')
+    const [trips, setTrips] = useState([])
 
-    const handleSubmit = async e => {
+    const handleSubmit = async (e) => {
         try {
           e.preventDefault()
-    
-          // post to the backed with our form submission
+          
           const requestBody = {
             username: username,
             email: email,
@@ -33,6 +32,8 @@ export default function Register(props) {
           const decoded = jwt_decode(token)
           props.setCurrentUser(decoded)
     
+
+
         } catch(error) {
           if(error.response.status === 400) {
             setMessage(error.response.data.msg)
@@ -81,46 +82,31 @@ if(props.currentUser) return <Redirect to='/' component={ Account } currentUser=
                     value={password}
                 />
 
-
-
-
-                <div className="hidden-inputs">
                 <input
                     id='firstName-input'
-                    type='text'
-                    placeholder='your firstName'
-                    onChange={e => setFirstName(e.target.value)}
+                    type='hidden'
                     value={firstName}
                 />
                 <input
                     id='lastName-input'
-                    type='text'
-                    placeholder='your lastName'
-                    onChange={e => setLastName(e.target.value)}
+                    type='hidden'
                     value={lastName}
                 />
                 <input
                     id='city-input'
-                    type='text'
-                    placeholder='your city'
-                    onChange={e => setCity(e.target.value)}
+                    type='hidden'
                     value={city}
                 />
                 <input
-                    id='DOB-input'
-                    type='text'
-                    placeholder='your DOB'
-                    onChange={e => setDOB(e.target.value)}
-                    value={DOB}
-                />
-                <input
                     id='img-input'
-                    type='text'
-                    placeholder='your img'
-                    onChange={e => setImg(e.target.value)}
+                    type='hidden'
                     value={img}
                 />
-                </div>
+                <input
+                    id='trips-input'
+                    type='hidden'
+                    value={trips}
+                />
                 <input 
                     type='submit'
                     value='Register'

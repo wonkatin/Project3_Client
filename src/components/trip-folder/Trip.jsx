@@ -1,18 +1,16 @@
 import { BrowserRouter as Router, Link } from "react-router-dom"
 import TripCard from './TripCard.jsx'
+import CreateTrip from './CreateTrip.jsx'
 
 // Needs:
-    // Route for TripContainer?
-    // Address link to create new Trip
-    // Is map info correct?
     // Possible stretch goal links with conditionals for sorting trips by date
 
 
 export default function Trips(props) {
-    
+    console.log(props.currentUser);
     // const [trips, setTrips] = useState([])
 
-    const AllTrips = props.trips.map((trip, index) => {
+    const AllTrips = props.currentUser.trips.map((trip, index) => {
         return <TripCard
                     key={index}
                     img={trip.img}
@@ -26,9 +24,9 @@ export default function Trips(props) {
         <Router>
             <div className="background-trips">
                 <h1>My Trips</h1>
-                <Link to={`/users/${props.currentUser.id}/trips/${tripId}`} className="button">Add New Trip</Link>
                 <div className="trip-container">
                     {AllTrips}
+                    <CreateTrip />
                 </div>
             </div>
         </Router>

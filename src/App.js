@@ -8,15 +8,18 @@ import Login from './components/auth/Login'
 import Account from './components/auth/Account'
 import Register from './components/auth/Register'
 import About from './components/About'
+import Trip from './components/trip-folder/Trip'
 
 function App() {
   
   const [currentUser, setCurrentUser] = useState(null)
+  console.log(currentUser);
   
   useEffect(() => {
     const token = localStorage.getItem('jwtToken')
     if(token) {
       const decoded = jwt_decode(token)
+      console.log(decoded);
       setCurrentUser(decoded)
     } else {
       setCurrentUser(null)
@@ -62,6 +65,16 @@ function App() {
               path={`/users/${currentUser.id}/account`}
               render={ (props) =>
                 <Account {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> 
+              }
+            />
+            }
+
+            {currentUser &&
+             <Route 
+              // path='/users/${userId}/account'
+              path={`/users/${currentUser.id}/trips`}
+              render={ (props) =>
+                <Trip {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> 
               }
             />
             }

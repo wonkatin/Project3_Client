@@ -7,9 +7,11 @@ export default function About(props) {
     // Needs:
       // classNames and styling
       // App Logo
+    // Stretch:
       // FAQ info
       // Profile Pictures
       // Footer Links
+      // Set up condition for trips button
 
         <div>
           <img src="" alt=""/>
@@ -22,7 +24,7 @@ export default function About(props) {
           </p>
          
           <Link to={`/users/${props.currentUser.id}/trips`} className="button">Get Trippin'!</Link>
-          {/* <Link to='/users/${userId}/trips' className="button">Get Trippin'!</Link> */}
+          {/* <Link to='/users/userid/trips' className="button">Get Trippin'!</Link> */}
 
           <h2>Frequently Asked Questions</h2>
           <p>FAQ info</p>

@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { Redirect } from 'react-router-dom'
+import axios from 'axios'
 
 export default function CreateTrip(props) {
 
@@ -8,17 +10,21 @@ export default function CreateTrip(props) {
   const [toDate, setToDate] = useState('')
   const [image, setImage] = useState('')
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Need to figure out how to add info to database from here.
-  }
-
-  const handleChange = e => {
-    setTripName(e.target.value),
-    setLocation(e.target.value),
-    setFromDate(e.target.value),
-    setToDate(e.target.value),
-    setImage(e.target.value)
+    try {
+      const requestBody = {
+        tripName: tripName,
+        location: location,
+        fromDate: fromDate,
+        toDate: toDate,
+        image: image
+      }
+  
+      await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips`, requestBody)
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return(
@@ -32,7 +38,7 @@ export default function CreateTrip(props) {
               id="trip-name-input"
               placeholder="Trip Name"
               value={tripName}
-              onChange={handleChange}
+              onChange={e => setTripName(e.target.value)}
             />
             <label htmlFor="location-input">Location</label>
             <input 
@@ -40,7 +46,7 @@ export default function CreateTrip(props) {
               id="location-input"
               placeholder="Location"
               value={location}
-              onChange={handleChange}
+              onChange={e => setLocation(e.target.value)}
             />
             <label htmlFor="from-date-input">From Date</label>
             <input
@@ -48,7 +54,7 @@ export default function CreateTrip(props) {
               id="from-date-input"
               placeholder="From Date"
               value={fromDate}
-              onChange={handleChange}
+              onChange={e => setFromDate(e.target.value)}
             />
             <label htmlFor="to-date-input">To Date</label>
             <input
@@ -56,7 +62,7 @@ export default function CreateTrip(props) {
               id="to-date-input"
               placeholder="To Date"
               value={toDate}
-              onChange={handleChange}
+              onChange={e => setToDate(e.target.value)}
             />
             <label htmlFor="image-input">Image</label>
             <input
@@ -64,7 +70,7 @@ export default function CreateTrip(props) {
               id="image-input"
               placeholder="Image"
               value={image}
-              onChange={handleChange}
+              onChange={e => setImage(e.target.value)}
             />
             <input type="submit"/>
           </form>
