@@ -60,11 +60,11 @@ export default function Navbar(props) {
 
             : <>
                 <Link className="nav-link" to='/users/register'>
-                    <span>register link</span>
+                    <span>Register</span>
                 </Link>
 
                 <Link className="nav-link" to='/users/login'>
-                    <span>login link</span>
+                    <span>Login</span>
                 </Link>
               </>
             }

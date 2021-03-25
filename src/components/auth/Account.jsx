@@ -1,3 +1,6 @@
+// Update current user in state?
+
+
 import { useState } from 'react'
 import axios from 'axios'
 import chrisImg from '../../img/chris.jpg'
@@ -11,7 +14,6 @@ export default function Account(props) {
     const [firstName, setFirstName] = useState(props.currentUser.firstName)
     const [lastName, setLastName] = useState(props.currentUser.lastName)
     const [city, setCity] = useState(props.currentUser.city)
-    const [DOB, setDOB] = useState(props.currentUser.DOB)
     const [img, setImg] = useState(props.currentUser.img)
 
     const handleSubmit = async e => {
@@ -23,7 +25,6 @@ export default function Account(props) {
                 firstName: firstName,
                 lastName: lastName,
                 city: city,
-                DOB: DOB,
                 img: img
             }
             // get our jwt from local storage
@@ -76,7 +77,7 @@ export default function Account(props) {
                             type="text" 
                             placeholder="First Name" 
                             id="first-name-input" 
-                            value={ props.currentUser.firstName }
+                            value={ firstName }
                             onChange={e => setFirstName(e.target.value)} 
                         />
 
@@ -85,7 +86,7 @@ export default function Account(props) {
                             type="text" 
                             placeholder="Last Name" 
                             id="last-name-input" 
-                            value={ props.currentUser.lastName }
+                            value={ lastName }
                             onChange={e => setLastName(e.target.value)}
                         />
 
@@ -94,7 +95,7 @@ export default function Account(props) {
                             type="text" 
                             placeholder="Username" 
                             id="username-input" 
-                            value={ props.currentUser.username }
+                            value={ username }
                             onChange={e => setUsername(e.target.value)}
                         />
 
@@ -103,7 +104,7 @@ export default function Account(props) {
                             type="text" 
                             placeholder="Account Image" 
                             id="account-image-input" 
-                            value={ props.currentUser.img }
+                            value={ img }
                             onChange={e => setImg(e.target.value)}
                         />
                     </div>
@@ -114,7 +115,7 @@ export default function Account(props) {
                             type="text" 
                             placeholder="Email Address" 
                             id="email-input" 
-                            value={ props.currentUser.email }
+                            value={ email }
                             onChange={e => setEmail(e.target.value)}
                         />
 
@@ -123,17 +124,8 @@ export default function Account(props) {
                             type="text" 
                             placeholder="City" 
                             id="city-input" 
-                            value={ props.currentUser.city }
+                            value={ city }
                             onChange={e => setCity(e.target.value)}
-                        />
-
-                        <label htmlFor="dob-input">Date of Birth</label>
-                        <input 
-                            type="text" 
-                            placeholder="Date of Birth" 
-                            id="dob-input" 
-                            value={ props.currentUser.DOB }
-                            onChange={e => setDOB(e.target.value)}
                         />
 
                         <input 

@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 export default function TripCard(props) {
   return(
     <Router>
-      <Link to={`/users/${props.currentUser.id}/trips/${tripId}`}>
+      <Link to={`/users/${props.currentUser.id}/trips/${props.currentUser.trips.tripId}`}>
             <div className="trip-card">
               <h2>{props.name}</h2>
               <h4>{props.location}</h4>
