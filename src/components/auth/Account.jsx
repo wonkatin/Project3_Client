@@ -19,6 +19,7 @@ export default function Account(props) {
         e.preventDefault()
         try{
             const requestBody = {
+                id: props.currentUser.id,
                 username: username,
                 email: email,
                 firstName: firstName,
@@ -35,6 +36,7 @@ export default function Account(props) {
 
             await axios.put(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/account`, requestBody, { headers: authHeaders} )
             setShouldRedir(true)
+            props.setCurrentUser(requestBody)
 
         } catch(err){
             console.log(err);
@@ -55,7 +57,9 @@ export default function Account(props) {
     }
 
     return(
-        shouldRedir ? <Redirect to={`/users/${props.currentUser.id}/trips`}/> : <div className="background-trips">
+        shouldRedir ? <Redirect to={`/users/${props.currentUser.id}/trips`}/> :
+        
+        <div className="background-trips">
 
             {/* <div className="account-card">
                 <img src={chrisImg} alt="chris img" className="account-img"/>
