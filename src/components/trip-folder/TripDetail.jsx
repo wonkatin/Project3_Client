@@ -34,6 +34,10 @@ export default function TripDetail(props) {
                     <form onSubmit={handleAddChecklist}>
                         <input type="submit" value="Add Trip Checklist"/>
                     </form>
+                    <form >
+                        <input type="submit" value="Add Trip Expenses"/>
+                    </form>
+                    {/* add conditional rendering for if tool exists in state */}
                     <ChecklistTool className="tool"/>
                     {/* <ExpenseTool className="tool"/>
                     <FlightTool className="tool"/>
