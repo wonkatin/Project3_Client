@@ -43,8 +43,7 @@ export default function Trips(props) {
         
         
         return(
-            <div className="background-trips">
-                <h1>My Trips</h1>
+            <div>
                 <div className="trip-container">
                    { displayTrips }
                 </div>
