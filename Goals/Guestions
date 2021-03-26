@@ -4,6 +4,8 @@ Account
 - account page doesn't display updated user info (but yes it updates in DB)
 Create Trip
 - Problems with date input on the trip form (DB)/ how to enter date? 
+
+
 Checklist
 - filter checklist into categories
 - update functionality of checklist after it is rendering correctly 
