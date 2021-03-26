@@ -31,6 +31,7 @@ export default function CreateTrip(props) {
 
 
       <div>
+          <h4>Add a New Trip</h4>
           <form onSubmit={handleSubmit}>
             <label htmlFor="trip-name-input">Trip Name</label>
             <input 
