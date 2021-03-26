@@ -7,7 +7,7 @@ export default function TripContainer(props) {
         <div className="background-trips">
             <h1>My Trips</h1>
             <CreateTrip handleLogout={ props.handleLogout } currentUser={ props.currentUser } setCurrentUser={ props.setCurrentUser } />
-            <Trip handleLogout={ props.handleLogout } currentUser={ props.currentUser } setCurrentUser={ props.setCurrentUser } />
+            <Trip handleLogout={ props.handleLogout } currentUser={ props.currentUser } setCurrentUser={ props.setCurrentUser } tripId={ props.tripId } setTripId={ props.setTripId } />
         </div>
     )
 }

@@ -14,7 +14,7 @@ import TripContainer from './components/trip-folder/TripContainer';
 function App() {
   
   const [currentUser, setCurrentUser] = useState(null)
-  const [tripId] = useState([])
+  const [tripId, setTripId] = useState([])
   
   useEffect(() => {
     const token = localStorage.getItem('jwtToken')
@@ -75,7 +75,7 @@ function App() {
              
               exact path={`/users/${currentUser.id}/trips`}
               render={ (props) =>
-                <TripContainer {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> 
+                <TripContainer {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } tripId={ tripId } setTripId={ setTripId } /> 
               }
             />
             }
@@ -83,7 +83,7 @@ function App() {
              <Route 
               path={`/users/${currentUser.id}/trips/${tripId}`}
               render={ (props) =>
-                <TripDetail {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> 
+                <TripDetail {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } tripId={ tripId } setTripId={ setTripId } /> 
               }
             />
             }

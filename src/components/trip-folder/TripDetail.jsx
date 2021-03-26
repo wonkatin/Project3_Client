@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import checklistData from '../tools/checklistData'
 import ChecklistTool from '../tools/ChecklistTool'
@@ -10,12 +10,14 @@ import ChecklistTool from '../tools/ChecklistTool'
 
 export default function TripDetail(props) {
     const [checklist, setChecklist] = useState([])
+    const [allTrips, setAllTrips] = useState([])
     // const [itemName, setItemName] = useState('')
     // const [checked, setChecked] = useState(false)
     // const [category, setCategory] = useState('')
     const incomingChecklist = checklistData.data
-    console.log(incomingChecklist, '🤯')
+
     console.log(props)
+
     const handleAddChecklist = async (e) => {
         try {
             e.preventDefault()
@@ -32,6 +34,7 @@ export default function TripDetail(props) {
             console.log(error)
         }
     }
+    console.log(props)
     return(
         <div>
             <h1>Hello from TripDetail</h1>
@@ -39,7 +42,8 @@ export default function TripDetail(props) {
             <div className="detail-container">
                 
                 <div className="detail-header">
-                    <h1>{props.currentUser.trips}</h1>
+                    <h1>{props.location.state.name}</h1>
+                    <h4>{props.location.state.location}</h4>
                     
                    
                    
