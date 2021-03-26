@@ -9,11 +9,11 @@ export default function Register(props) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [message, setMessage] = useState('')
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const [city, setCity] = useState('')
-    const [img, setImg] = useState('')
-    const [trips, setTrips] = useState([])
+    const [firstName] = useState('')
+    const [lastName] = useState('')
+    const [city] = useState('')
+    const [img] = useState('')
+    const [trips] = useState([])
 
     const handleSubmit = async (e) => {
         try {

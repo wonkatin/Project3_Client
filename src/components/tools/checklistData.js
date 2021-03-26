@@ -1,3 +1,4 @@
+export const data =
 [
     { 
       "itemName": "face mask",
@@ -369,3 +370,6 @@
       "category": "to-do"  
     }
   ]
+export default {
+  data
+}

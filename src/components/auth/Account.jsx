@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import axios from 'axios'
-import chrisImg from '../../img/chris.jpg'
-import imgLogo from '../../img/App-logo.png'
+// import chrisImg from '../../img/chris.jpg'
+// import imgLogo from '../../img/App-logo.png'
 import { Redirect } from 'react-router'
 
 export default function Account(props) {
@@ -13,7 +13,7 @@ export default function Account(props) {
     const [firstName, setFirstName] = useState(props.currentUser.firstName)
     const [lastName, setLastName] = useState(props.currentUser.lastName)
     const [city, setCity] = useState(props.currentUser.city)
-    const [img, setImg] = useState(props.currentUser.img)
+    // const [img, setImg] = useState(props.currentUser.img)
 
     const handleSubmit = async e => {
         e.preventDefault()
@@ -24,7 +24,7 @@ export default function Account(props) {
                 firstName: firstName,
                 lastName: lastName,
                 city: city,
-                img: img
+                // img: img
             }
             // get our jwt from local storage
             const token = localStorage.getItem('jwtToken')
@@ -57,16 +57,14 @@ export default function Account(props) {
     return(
         shouldRedir ? <Redirect to={`/users/${props.currentUser.id}/trips`}/> : <div className="background-trips">
 
-            <div className="account-card">
+            {/* <div className="account-card">
                 <img src={chrisImg} alt="chris img" className="account-img"/>
-            </div>
+            </div> */}
 
             <h1>Hello {props.currentUser.username} !</h1> 
             {/* <h4>Portland, OR</h4>  */}
 
-            <div>
-                <img src={imgLogo} alt="trip tracker logo" className="small-logo" />
-            </div>
+         
 
             <div className="account-form">
                 <form onSubmit={handleSubmit} className="update-info"> 
@@ -103,8 +101,8 @@ export default function Account(props) {
                             type="text" 
                             placeholder="Account Image" 
                             id="account-image-input" 
-                            value={ img }
-                            onChange={e => setImg(e.target.value)}
+                            // value={ img }
+                            // onChange={e => setImg(e.target.value)}
                         />
                     </div>
 

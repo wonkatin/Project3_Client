@@ -40,10 +40,10 @@ export default function About(props) {
             <img src="" alt=""/>
             <p>Sarah</p>
 
-          <footer>
+          {/* <footer>
             <a href="">Github</a>
             <a href="">Email</a>
-          </footer>
+          </footer> */}
         </div>
   )
 }

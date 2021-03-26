@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import jwt_decode from 'jwt-decode'
 import './App.css';
@@ -14,7 +14,7 @@ import TripContainer from './components/trip-folder/TripContainer';
 function App() {
   
   const [currentUser, setCurrentUser] = useState(null)
-  const [tripId, setTripId] = useState([])
+  const [tripId] = useState([])
   
   useEffect(() => {
     const token = localStorage.getItem('jwtToken')
