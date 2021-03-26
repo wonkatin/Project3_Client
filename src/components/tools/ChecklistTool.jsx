@@ -7,7 +7,11 @@ export default function ChecklistTool(props) {
   const list = checklistData.data.map((item, index) => {
     return(
       <div key={index}>
+        <input type="checkbox"></input>
         <h4>{item.itemName}</h4>
+        <form >
+          <input type="submit" value="delete"/>
+        </form>
       </div>
     )
   })

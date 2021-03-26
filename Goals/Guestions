@@ -1,13 +1,13 @@
-
+MVP: 
 Account
 - delete account button many problems: log out, delete token, and redirect---> home
-- account page doesn't display updated user info 
+- account page doesn't display updated user info (but yes it updates in DB)
+- Problems with date input on the trip form (DB)/ how to enter date? 
+- filter checklist into categories
+- update functionality of checklist after it is rendering correctly 
 
-Toggle new user/existing user buttons when user is signed in (Welcome component)
 
-Checklist?!
-
-Problems with date input on the trip form (DB)
-How to store users imgs in DB
-
-Condition to filter the trips (Trip component)
+STRETCH: 
+- Toggle new user/existing user buttons when user is signed in (Welcome component)
+- How to store users imgs in DB
+- Condition to filter the trips (Trip component)
