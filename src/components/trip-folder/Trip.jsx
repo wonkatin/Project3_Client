@@ -13,6 +13,7 @@ export default function Trips(props) {
         let pullData = async () => {
             const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips`)
             const tripInfo = response.data
+            console.log(tripInfo)
             let tripsArray = [];
 
             for (const key in tripInfo) {
@@ -25,6 +26,8 @@ export default function Trips(props) {
         pullData()
     }, [props.currentUser.id])
     
+    console.log(props.tripId)
+
     const displayTrips = allTrips.map((trip, index) => {
         return (
             <TripCard

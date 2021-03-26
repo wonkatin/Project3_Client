@@ -5,14 +5,17 @@ import { Link } from "react-router-dom";
 
 export default function TripCard(props) {
   // console.log(props.currentUser.id,'✅')
-  // console.log(props.tripId, '🌈')
+  console.log(props.tripId, '🌈')
   return(
     <div>
 
       <Link to={{
         pathname: `/users/${props.currentUser.id}/trips/${props.tripId}`, 
         state: {
-          tripId: props.tripId
+          tripId: props.tripId,
+          name: props.name,
+          location: props.location,
+          fromDate: props.fromDate,
         }}}
       >
         Show me my trip
