@@ -9,7 +9,12 @@ export default function TripCard(props) {
   return(
     <div>
 
-      <Link to={`/users/${props.currentUser.id}/trips/${props.tripId}`}>
+      <Link to={{
+        pathname: `/users/${props.currentUser.id}/trips/${props.tripId}`, 
+        state: {
+          tripId: props.tripId
+        }}}
+      >
         Show me my trip
       </Link> 
             <div className="trip-card">
