@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 
 export default function ChecklistTool(props) {
 
   const [item, setItem] = useState('')
-  const [list, setList] = useState([])
+  // const [list, setList] = useState([])
 
   const handleSubmit = e => {
     e.preventDefault()

@@ -1,4 +1,3 @@
-import { BrowserRouter as Router, Link } from "react-router-dom"
 import  { useState, useEffect } from 'react'
 import TripCard from './TripCard.jsx'
 import axios from 'axios'
@@ -24,7 +23,7 @@ export default function Trips(props) {
             console.log(tripsArray, '🌷')
         }
         pullData()
-    }, [])
+    }, [props.currentUser.id])
     
     const displayTrips = allTrips.map((trip, index) => {
         return (

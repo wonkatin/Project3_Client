@@ -2,7 +2,6 @@ import { useState } from 'react'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import { Redirect } from 'react-router-dom'
-import Account from './Account'
 import TripContainer from '../trip-folder/TripContainer'
 
 export default function Login(props) {

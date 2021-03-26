@@ -1,9 +1,9 @@
-import ChecklistTool from '../tools/ChecklistTool'
-import ExpenseTool from '../tools/ExpenseTool'
-import FlightTool from '../tools/FlightTool'
-import LodgingTool from '../tools/LodgingTool'
-import NoteTool from '../tools/NoteTool'
-import ScheduleTool from '../tools/ScheduleTool'
+// import ChecklistTool from '../tools/ChecklistTool'
+// import ExpenseTool from '../tools/ExpenseTool'
+// import FlightTool from '../tools/FlightTool'
+// import LodgingTool from '../tools/LodgingTool'
+// import NoteTool from '../tools/NoteTool'
+// import ScheduleTool from '../tools/ScheduleTool'
 
 export default function TripDetail(props) {
     return(
