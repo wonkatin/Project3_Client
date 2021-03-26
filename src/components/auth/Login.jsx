@@ -3,6 +3,7 @@ import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import { Redirect } from 'react-router-dom'
 import Account from './Account'
+import TripContainer from '../trip-folder/TripContainer'
 
 export default function Login(props) {
     // app state for sign in form
@@ -33,7 +34,7 @@ export default function Login(props) {
         }
     }
     //check to see if user is logged in and redirect to account
-    if(props.currentUser) return <Redirect to={`/users/${props.currentUser.id}/account`} component={ Account } currentUser={ props.currentUser } />
+    if(props.currentUser) return <Redirect to={`/users/${props.currentUser.id}/trips`} component={ TripContainer } currentUser={ props.currentUser } />
     
     return(
         <div>

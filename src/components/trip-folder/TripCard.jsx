@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
   // Figure out how to set DB image as background image.
 
 export default function TripCard(props) {
-  console.log(props.currentUser.id,'✅')
-  console.log(props.tripId, '🌈')
+  // console.log(props.currentUser.id,'✅')
+  // console.log(props.tripId, '🌈')
   return(
     <div>
 

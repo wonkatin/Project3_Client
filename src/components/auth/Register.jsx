@@ -44,7 +44,7 @@ export default function Register(props) {
     }
 }
 
-if(props.currentUser) return <Redirect to='/' component={ Account } currentUser={ props.currentUser } />
+if(props.currentUser) return <Redirect to={`/users/${props.currentUser.id}/account`} component={ Account } currentUser={ props.currentUser } />
 
     return(
         <div>

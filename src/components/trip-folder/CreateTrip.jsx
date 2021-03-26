@@ -11,7 +11,7 @@ export default function CreateTrip(props) {
   const [image, setImage] = useState('')
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    // e.preventDefault() //in purpose to refresh the page!
     try {
       const requestBody = {
         name: name,
