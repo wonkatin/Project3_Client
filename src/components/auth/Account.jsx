@@ -1,6 +1,5 @@
 // Update current user in state?
 
-
 import { useState } from 'react'
 import axios from 'axios'
 import chrisImg from '../../img/chris.jpg'
@@ -56,7 +55,7 @@ export default function Account(props) {
     }
 
     return(
-        shouldRedir ? <Redirect to="/"/> : <div className="background-trips">
+        shouldRedir ? <Redirect to={`/users/${props.currentUser.id}/trips`}/> : <div className="background-trips">
 
             <div className="account-card">
                 <img src={chrisImg} alt="chris img" className="account-img"/>

@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 export default function About(props) {
-  // console.log(props);
   return(
 
     // Needs:
@@ -24,7 +23,6 @@ export default function About(props) {
           </p>
          
           <Link to={`/users/${props.currentUser.id}/trips`} className="button">Get Trippin'!</Link>
-          {/* <Link to='/users/userid/trips' className="button">Get Trippin'!</Link> */}
 
           <h2>Frequently Asked Questions</h2>
           <p>FAQ info</p>

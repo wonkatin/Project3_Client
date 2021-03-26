@@ -20,7 +20,6 @@ function App() {
     const token = localStorage.getItem('jwtToken')
     if(token) {
       const decoded = jwt_decode(token)
-      // console.log(decoded);
       setCurrentUser(decoded)
       // console.log(currentUser, '🌈');
     } else {
@@ -35,7 +34,6 @@ function App() {
       setCurrentUser(null)
     }
   }
-  console.log(currentUser, '🌈');
 
   return (
       <Router>
@@ -83,7 +81,6 @@ function App() {
             }
             {currentUser &&
              <Route 
-             
               path={`/users/${currentUser.id}/trips/${tripId}`}
               render={ (props) =>
                 <TripDetail {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> 

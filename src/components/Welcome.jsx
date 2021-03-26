@@ -8,6 +8,7 @@ export default function Welcome() {
                 <div className="homepage-logo">
                     <img src={img} alt="trip tracker logo"/>
                 </div>
+                
                 <div className="sign-up-buttons">
                     <Link to="/users/register" className="button">New User</Link>
                     <Link to="/users/login" className="button">Existing User</Link>
@@ -18,3 +19,6 @@ export default function Welcome() {
             </div>
     )
 }
+
+
+// if(props.currentUser){}

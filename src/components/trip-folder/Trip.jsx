@@ -10,11 +10,9 @@ import axios from 'axios'
 export default function Trips(props) {
     const [allTrips, setAllTrips] = useState([])
 
-    // console.log(props.currentUser.trips)
     useEffect(() => {
         let pullData = async () => {
             const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips`)
-            // console.log(response.data[0], '🌸');
             const tripInfo = response.data
             let tripsArray = [];
 
@@ -25,8 +23,6 @@ export default function Trips(props) {
             setAllTrips(tripsArray)
             console.log(tripsArray, '🌷')
         }
-
-
         pullData()
     }, [])
     
@@ -43,7 +39,6 @@ export default function Trips(props) {
                 currentUser={ props.currentUser } 
                 setCurrentUser={ props.setCurrentUser } 
             />
-            
             )
         })
         
