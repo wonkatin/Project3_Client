@@ -4,7 +4,7 @@ import axios from 'axios'
 
 export default function CreateTrip(props) {
 
-  const [tripName, setTripName] = useState('')
+  const [name, setName] = useState('')
   const [location, setLocation] = useState('')
   const [fromDate, setFromDate] = useState('')
   const [toDate, setToDate] = useState('')
@@ -14,7 +14,7 @@ export default function CreateTrip(props) {
     e.preventDefault()
     try {
       const requestBody = {
-        tripName: tripName,
+        name: name,
         location: location,
         fromDate: fromDate,
         toDate: toDate,
@@ -37,8 +37,8 @@ export default function CreateTrip(props) {
               type="text"
               id="trip-name-input"
               placeholder="Trip Name"
-              value={tripName}
-              onChange={e => setTripName(e.target.value)}
+              value={name}
+              onChange={e => setName(e.target.value)}
             />
             <label htmlFor="location-input">Location</label>
             <input 

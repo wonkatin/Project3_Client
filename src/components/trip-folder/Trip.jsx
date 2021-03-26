@@ -23,7 +23,7 @@ export default function Trips(props) {
                 tripsArray.push(tripInfo[key])
             }
             setAllTrips(tripsArray)
-            // console.log(tripsArray, '🌷')
+            console.log(tripsArray, '🌷')
         }
 
 
@@ -32,17 +32,17 @@ export default function Trips(props) {
     
     const displayTrips = allTrips.map((trip, index) => {
         return (
-            <h1 key={index}>{trip.location}</h1>
-            // <TripCard
-            //     key={ index }
-            //     img={ trip.img }
-            //     name={ trip.name }
-            //     location={ trip.location }
-            //     fromDate={ trip.fromDate }
-            //     handleLogout={ props.handleLogout } 
-            //     currentUser={ props.currentUser } 
-            //     setCurrentUser={ props.setCurrentUser } 
-            // />
+            <TripCard
+                key={ index }
+                tripId={ trip._id }
+                img={ trip.img }
+                name={ trip.name }
+                location={ trip.location }
+                fromDate={ trip.fromDate }
+                handleLogout={ props.handleLogout } 
+                currentUser={ props.currentUser } 
+                setCurrentUser={ props.setCurrentUser } 
+            />
             
             )
         })

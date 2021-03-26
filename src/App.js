@@ -8,13 +8,13 @@ import Login from './components/auth/Login'
 import Account from './components/auth/Account'
 import Register from './components/auth/Register'
 import About from './components/About'
-import Trip from './components/trip-folder/Trip'
+import TripDetail from './components/trip-folder/TripDetail'
 import TripContainer from './components/trip-folder/TripContainer';
 
 function App() {
   
   const [currentUser, setCurrentUser] = useState(null)
-  // console.log(currentUser);
+  const [tripId, setTripId] = useState([])
   
   useEffect(() => {
     const token = localStorage.getItem('jwtToken')
@@ -22,6 +22,7 @@ function App() {
       const decoded = jwt_decode(token)
       // console.log(decoded);
       setCurrentUser(decoded)
+      // console.log(currentUser, '🌈');
     } else {
       setCurrentUser(null)
     }
@@ -34,13 +35,14 @@ function App() {
       setCurrentUser(null)
     }
   }
+  console.log(currentUser, '🌈');
 
   return (
       <Router>
         <header>
           <Navbar currentUser={ currentUser } handleLogout={ handleLogout } />
         </header>
-
+          
         <div className="App">
           <Switch>
             <Route exact path='/' component={ Welcome } />
@@ -59,10 +61,10 @@ function App() {
                 path='/about'
                 render={ (props) => <About {...props} currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> }
             />
+            
 
             {currentUser &&
              <Route 
-              // path='/users/${userId}/account'
               path={`/users/${currentUser.id}/account`}
               render={ (props) =>
                 <Account {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> 
@@ -72,10 +74,18 @@ function App() {
 
             {currentUser &&
              <Route 
-              // path='/users/${userId}/account'
               path={`/users/${currentUser.id}/trips`}
               render={ (props) =>
                 <TripContainer {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> 
+              }
+            />
+            }
+            {currentUser &&
+             <Route 
+             
+              path={`/users/${currentUser.id}/trips/${tripId}`}
+              render={ (props) =>
+                <TripDetail {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } tripId={ tripId } setTripId={ setTripId } /> 
               }
             />
             }
