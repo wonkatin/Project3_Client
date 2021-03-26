@@ -1,32 +1,49 @@
 import { BrowserRouter as Router, Link } from "react-router-dom"
+import  { useState, useEffect } from 'react'
 import TripCard from './TripCard.jsx'
-import CreateTrip from './CreateTrip.jsx'
+import axios from 'axios'
 
 // Needs:
     // Possible stretch goal links with conditionals for sorting trips by date
 
 
 export default function Trips(props) {
-    console.log(props.currentUser);
-    // const [trips, setTrips] = useState([])
+    const [allTrips, setAllTrips] = useState([])
 
-    const AllTrips = props.currentUser.trips.map((trip, index) => {
-        return <TripCard
-                    key={index}
-                    img={trip.img}
-                    name={trip.name}
-                    location={trip.location}
-                    fromDate={trip.fromDate}
-                />
-    })
+    // console.log(props.currentUser.trips)
+    useEffect(() => {
+        let pullData = async () => {
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips`)
+            console.log(response);
+            let tripsArray = [];
+            for (const key in allTrips) {
+                console.log(key, allTrips[key])
+                tripsArray.push(allTrips[key])
+            }
+            setAllTrips(tripsArray)
+        }
+        pullData()
+    }, [])
+
+    // console.log(tripsArray);
+    // if(allTrips) {
+        const displayTrips = allTrips.map((trip, index) => {
+            return <TripCard
+                        key={index}
+                        img={trip.img}
+                        name={trip.name}
+                        location={trip.location}
+                        fromDate={trip.fromDate}
+                    />
+        })
+    // }
     
     return(
         <Router>
             <div className="background-trips">
                 <h1>My Trips</h1>
                 <div className="trip-container">
-                    {AllTrips}
-                    <CreateTrip />
+                    {displayTrips}
                 </div>
             </div>
         </Router>
