@@ -9,11 +9,12 @@ import Account from './components/auth/Account'
 import Register from './components/auth/Register'
 import About from './components/About'
 import Trip from './components/trip-folder/Trip'
+import TripContainer from './components/trip-folder/TripContainer';
 
 function App() {
   
   const [currentUser, setCurrentUser] = useState(null)
-  console.log(currentUser);
+  // console.log(currentUser);
   
   useEffect(() => {
     const token = localStorage.getItem('jwtToken')
@@ -74,7 +75,7 @@ function App() {
               // path='/users/${userId}/account'
               path={`/users/${currentUser.id}/trips`}
               render={ (props) =>
-                <Trip {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> 
+                <TripContainer {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> 
               }
             />
             }
