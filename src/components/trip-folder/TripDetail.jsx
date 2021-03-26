@@ -13,19 +13,19 @@ export default function TripDetail(props) {
             <div className="detail-container">
                 
                 <div className="detail-header">
-                    <h1>{props.name}</h1>
+                    {/* <h1>{props.name}</h1>
                     <h4>{props.location}</h4>
-                    <h5>{props.fromDate}</h5>
-                    <img src={props.img} alt={props.location}/>
+                    <h5>{props.fromDate}</h5> */}
+                    {/* <img src={props.img} alt={props.location}/> */}
                 </div>
                 
                 <div className="tool-container">
-                    <ChecklistTool className="tool"/>
+                    {/* <ChecklistTool className="tool"/>
                     <ExpenseTool className="tool"/>
                     <FlightTool className="tool"/>
                     <LodgingTool className="tool"/>
                     <NoteTool className="tool"/>
-                    <ScheduleTool className="tool"/>
+                    <ScheduleTool className="tool"/> */}
                 </div>
 
             </div>

@@ -74,7 +74,8 @@ function App() {
 
             {currentUser &&
              <Route 
-              path={`/users/${currentUser.id}/trips`}
+             
+              exact path={`/users/${currentUser.id}/trips`}
               render={ (props) =>
                 <TripContainer {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> 
               }
@@ -85,7 +86,7 @@ function App() {
              
               path={`/users/${currentUser.id}/trips/${tripId}`}
               render={ (props) =>
-                <TripDetail {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } tripId={ tripId } setTripId={ setTripId } /> 
+                <TripDetail {...props} handleLogout={ handleLogout } currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> 
               }
             />
             }
