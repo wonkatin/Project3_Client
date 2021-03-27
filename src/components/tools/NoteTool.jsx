@@ -20,7 +20,8 @@ const [newNote, setNewNote] = useState('')
 
 // const handleDelete = async e => {
 //   e.preventDefault()
-  
+// need to figure out what is noteId
+// await axios.delete(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/notes/${noteId}`)
 // }
 
 
@@ -34,6 +35,9 @@ const [newNote, setNewNote] = useState('')
                 value={newNote}
                 onChange={e => setNewNote(e.target.value)}
               />
+
+              {newNote}
+
               <input type="submit" value="Add"/>
           </form>
 
