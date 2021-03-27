@@ -2,10 +2,10 @@ import { useState } from 'react'
 import axios from 'axios'
 import checklistData from '../tools/checklistData'
 import ChecklistTool from '../tools/ChecklistTool'
+import NoteTool from '../tools/NoteTool'
 // import ExpenseTool from '../tools/ExpenseTool'
 // import FlightTool from '../tools/FlightTool'
 // import LodgingTool from '../tools/LodgingTool'
-// import NoteTool from '../tools/NoteTool'
 // import ScheduleTool from '../tools/ScheduleTool'
 
 export default function TripDetail(props) {
