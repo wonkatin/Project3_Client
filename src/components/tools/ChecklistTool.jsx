@@ -8,6 +8,7 @@ export default function ChecklistTool(props) {
   // handleSubmit = e => {
   //   e.preventDefault()
   //   console.log(newItem)
+  // const newClothAndAcc = [...mapClothingAndAccessories, setNewIem] ?????
   // }
 
   // console.log(props)
@@ -80,7 +81,7 @@ export default function ChecklistTool(props) {
   return (
     <div>
     {/* // add new item to list */}
-    {/* <form onSubmit={ handleSubmit } > */}
+    {/* <form onSubmit={ handleSubmit } >  when uncommented --> throwing an error, the same as is NoteTool file */}
     <form>
         <label htmlFor='item-input'>Add items to checklist!</label>
 
