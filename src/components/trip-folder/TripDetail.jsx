@@ -15,14 +15,10 @@ export default function TripDetail(props) {
     // const [checked, setChecked] = useState(false)
     // const [category, setCategory] = useState('')
     const incomingChecklist = checklistData.data
-
-    console.log(props)
-
     const handleAddChecklist = async (e) => {
         try {
             e.preventDefault()
             const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/tripChecklist`, {incomingChecklist})
-            console.log(typeof response.data.items, '😻')
             const fixMyChecklist = response.data.items
             let checklistArray = [];
             for(const key in fixMyChecklist) {
@@ -34,7 +30,7 @@ export default function TripDetail(props) {
             console.log(error)
         }
     }
-    console.log(props)
+    console.log(props, '😻')
     return(
         <div>
             <h1>Hello from TripDetail</h1>
@@ -44,26 +40,26 @@ export default function TripDetail(props) {
                 <div className="detail-header">
                     <h1>{props.location.state.name}</h1>
                     <h4>{props.location.state.location}</h4>
+                    <h4>{props.location.state.fromDate} - {props.location.state.toDate}</h4>
                     
                    
                    
                 </div>
                 
                 <div className="tool-container">
-                    <form onSubmit={handleAddChecklist}>
-                        <input type="submit" value="Add Trip Checklist"/>
-                        <input type="hidden"/>
-                    </form>
-                    {/* <form >
-                        <input type="submit" value="Add Trip Expenses"/>
-                    </form> */}
-                    {/* add conditional rendering for if tool exists in state */}
+                    {!props.location.state.tripChecklist[0] ?
+                        <form onSubmit={handleAddChecklist}>
+                            <input type="submit" value="Add Trip Checklist"/>
+                            <input type="hidden"/>
+                        </form>
+                    :
+
                     <ChecklistTool className="tool" checklist={ checklist }/>
-                    {/* <ExpenseTool className="tool"/>
-                    <FlightTool className="tool"/>
-                    <LodgingTool className="tool"/>
-                    <NoteTool className="tool"/>
-                    <ScheduleTool className="tool"/> */}
+                    
+                    }
+                   
+                    
+                
                 </div>
 
             </div>
