@@ -23,7 +23,7 @@ export default function ChecklistTool(props) {
 
 
   // console.log(props.checklist, '⛈')
-  const filterClothingAndAccessories = props.checklist.filter(item => item.category === "clothing and accessories")
+  const filterClothingAndAccessories = props.tripChecklist.filter(item => item.category === "clothing and accessories")
   const mapClothingAndAccessories = filterClothingAndAccessories.map((item, index) => {
     return(
       <div key={index}>
