@@ -1,10 +1,7 @@
-// import { useState } from 'react'
-
-// import axios from 'axios'
 
 export default function ChecklistTool(props) {
-  console.log(props.checklist, '⛈')
-  const filterClothingAndAccessories = props.checklist.filter(item => item.category === "clothing and accessories")
+  console.log(props, '⛈')
+  const filterClothingAndAccessories = props.tripChecklist.filter(item => item.category === "clothing and accessories")
   const mapClothingAndAccessories = filterClothingAndAccessories.map((item, index) => {
     return(
       <div key={index}>
@@ -16,7 +13,7 @@ export default function ChecklistTool(props) {
       </div>
     )
   })
-  const filterToiletries = props.checklist.filter(item => item.category === "toiletries")
+  const filterToiletries = props.tripChecklist.filter(item => item.category === "toiletries")
   const mapToiletries = filterToiletries.map((item, index) => {
     return(
       <div key={index}>
@@ -28,7 +25,7 @@ export default function ChecklistTool(props) {
       </div>
     )
   })
-  const filterMiscellaneous = props.checklist.filter(item => item.category === "miscellaneous")
+  const filterMiscellaneous = props.tripChecklist.filter(item => item.category === "miscellaneous")
   const mapMiscellaneous = filterMiscellaneous.map((item, index) => {
     return(
       <div key={index}>
@@ -40,7 +37,7 @@ export default function ChecklistTool(props) {
       </div>
     )
   })
-  const filterTodo = props.checklist.filter(item => item.category === "to-do")
+  const filterTodo = props.tripChecklist.filter(item => item.category === "to-do")
   const mapTodo = filterTodo.map((item, index) => {
     return(
       <div key={index}>

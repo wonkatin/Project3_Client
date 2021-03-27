@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 import checklistData from '../tools/checklistData'
 import ChecklistTool from '../tools/ChecklistTool'
@@ -10,7 +10,7 @@ import ChecklistTool from '../tools/ChecklistTool'
 
 export default function TripDetail(props) {
     const [checklist, setChecklist] = useState([])
-    const [allTrips, setAllTrips] = useState([])
+    // const [allTrips, setAllTrips] = useState([])
     // const [itemName, setItemName] = useState('')
     // const [checked, setChecked] = useState(false)
     // const [category, setCategory] = useState('')
@@ -18,19 +18,27 @@ export default function TripDetail(props) {
     const handleAddChecklist = async (e) => {
         try {
             e.preventDefault()
-            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/tripChecklist`, {incomingChecklist})
-            const fixMyChecklist = response.data.items
-            let checklistArray = [];
-            for(const key in fixMyChecklist) {
-                checklistArray.push(fixMyChecklist[key])
-            }
-            setChecklist(checklistArray)
+            await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/tripChecklist`, {incomingChecklist})
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/tripChecklist`)
+            console.log(response.data[0].items, '🤠')
+            const data = response.data[0].items
+            
+            // const fixMyChecklist = response.data.items
+            // let checklistArray = [];
+            // for(const key in fixMyChecklist) {
+            //     checklistArray.push(fixMyChecklist[key])
+            // }
+
+
+            setChecklist(data)
 
         } catch (error) {
             console.log(error)
         }
     }
     console.log(props, '😻')
+    console.log(checklist, '🤯')
+    
     return(
         <div>
             <h1>Hello from TripDetail</h1>
@@ -54,8 +62,9 @@ export default function TripDetail(props) {
                         </form>
                     :
 
-                    <ChecklistTool className="tool" checklist={ checklist }/>
-                    
+                    <ChecklistTool className="tool" 
+                        tripChecklist={ props.location.state.tripChecklist[0].items }/>
+
                     }
                    
                     
