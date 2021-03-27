@@ -53,7 +53,7 @@ export default function CreateTrip(props) {
             <input
               type="text"
               id="from-date-input"
-              placeholder="From Date"
+              placeholder="mm/dd/yy"
               value={fromDate}
               onChange={e => setFromDate(e.target.value)}
             />

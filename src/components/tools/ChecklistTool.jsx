@@ -1,16 +1,36 @@
-// import { useState } from 'react'
-
+import { useState } from 'react'
 // import axios from 'axios'
 
 export default function ChecklistTool(props) {
-  console.log(props.checklist, '⛈')
+  const [category, setCategory] = useState('')
+  const [newItem, setNewItem] = useState('')
+
+  // handleSubmit = e => {
+  //   e.preventDefault()
+  //   console.log(newItem)
+  // const newClothAndAcc = [...mapClothingAndAccessories, setNewIem] ?????
+  // }
+
+  // console.log(props)
+  // console.log(props.checklist)
+  // console.log(props.checklist.id)
+  // console.log(props.checklist._id)
+                  //    NEED to find :tripChecklistId and :itemId to hit delete route (trying to console.log it, but getting undefined)
+  // handleDelete = e => {
+  //   e.preventDefault()
+  //   await axios.delete(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/tripChecklist/:tripChecklistId/items/:itemId`)
+  // }
+
+
+  // console.log(props.checklist, '⛈')
   const filterClothingAndAccessories = props.checklist.filter(item => item.category === "clothing and accessories")
   const mapClothingAndAccessories = filterClothingAndAccessories.map((item, index) => {
     return(
       <div key={index}>
         <input type="checkbox"></input>
         <h4>{item.itemName}</h4>
-        <form >
+        {/* <form onSubmit={handleDelete}> */}
+        <form>
           <input type="submit" value="delete"/>
         </form>
       </div>
@@ -22,7 +42,8 @@ export default function ChecklistTool(props) {
       <div key={index}>
         <input type="checkbox"></input>
         <h4>{item.itemName}</h4>
-        <form >
+        {/* <form onSubmit={handleDelete}> */}
+        <form>
           <input type="submit" value="delete"/>
         </form>
       </div>
@@ -34,7 +55,8 @@ export default function ChecklistTool(props) {
       <div key={index}>
         <input type="checkbox"></input>
         <h4>{item.itemName}</h4>
-        <form >
+        {/* <form onSubmit={handleDelete}> */}
+        <form>
           <input type="submit" value="delete"/>
         </form>
       </div>
@@ -57,8 +79,45 @@ export default function ChecklistTool(props) {
   // const toDo
 
   return (
+    <div>
+    {/* // add new item to list */}
+    {/* <form onSubmit={ handleSubmit } >  when uncommented --> throwing an error, the same as is NoteTool file */}
+    <form>
+        <label htmlFor='item-input'>Add items to checklist!</label>
+
+        <input
+            id='item-input'
+            type='text'
+            placeholder='add an item'
+            onChange={e => setNewItem(e.target.value)}
+            value={newItem}
+        />
+        <input
+            type="submit"
+            value="Add"
+        />
+
+    <div>
+      <label className="label">Category</label>
+        <select
+          name="category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+          required
+          >
+          <option disabled="disabled" value="" className="is-hidden">Select One</option>
+          <option>Clothing and Accessories</option>
+          <option>Toiletries</option>
+          <option>Miscellaneous</option>
+          <option>To-do List</option>
+        </select>
+    </div>
+</form>
+
+
+
       <div>
-          <h1>Hello from ChecklistTool</h1>
+          <h1>Checklist ✔️</h1>
           <div>
           <h2>Clothing and Accessories</h2>
             {mapClothingAndAccessories}
@@ -77,5 +136,9 @@ export default function ChecklistTool(props) {
           </div>
           
       </div>
+      </div>
   )
 }
+
+
+      
