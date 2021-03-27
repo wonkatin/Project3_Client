@@ -5,7 +5,7 @@ import ChecklistTool from '../tools/ChecklistTool'
 // import ExpenseTool from '../tools/ExpenseTool'
 // import FlightTool from '../tools/FlightTool'
 // import LodgingTool from '../tools/LodgingTool'
-// import NoteTool from '../tools/NoteTool'
+import NoteTool from '../tools/NoteTool'
 // import ScheduleTool from '../tools/ScheduleTool'
 
 export default function TripDetail(props) {
@@ -22,7 +22,7 @@ export default function TripDetail(props) {
         try {
             e.preventDefault()
             const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/tripChecklist`, {incomingChecklist})
-            console.log(typeof response.data.items, '😻')
+            // console.log(typeof response.data.items, '😻')
             const fixMyChecklist = response.data.items
             let checklistArray = [];
             for(const key in fixMyChecklist) {
@@ -34,7 +34,7 @@ export default function TripDetail(props) {
             console.log(error)
         }
     }
-    console.log(props)
+    // console.log(props)
     return(
         <div>
             <h1>Hello from TripDetail</h1>
@@ -44,9 +44,6 @@ export default function TripDetail(props) {
                 <div className="detail-header">
                     <h1>{props.location.state.name}</h1>
                     <h4>{props.location.state.location}</h4>
-                    
-                   
-                   
                 </div>
                 
                 <div className="tool-container">
@@ -59,10 +56,10 @@ export default function TripDetail(props) {
                     </form> */}
                     {/* add conditional rendering for if tool exists in state */}
                     <ChecklistTool className="tool" checklist={ checklist }/>
+                    <NoteTool className="tool" />
                     {/* <ExpenseTool className="tool"/>
                     <FlightTool className="tool"/>
                     <LodgingTool className="tool"/>
-                    <NoteTool className="tool"/>
                     <ScheduleTool className="tool"/> */}
                 </div>
 
