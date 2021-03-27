@@ -21,7 +21,7 @@ export default function Trips(props) {
                 tripsArray.push(tripInfo[key])
             }
             setAllTrips(tripsArray)
-            console.log(tripsArray, '🌷')
+            // console.log(tripsArray, '🌷')
         }
         pullData()
     }, [props.currentUser.id])

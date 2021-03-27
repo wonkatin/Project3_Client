@@ -9,7 +9,7 @@ import NoteTool from '../tools/NoteTool'
 // import ScheduleTool from '../tools/ScheduleTool'
 
 export default function TripDetail(props) {
-    const [checklist, setChecklist] = useState([])
+    // const [checklist, setChecklist] = useState([])
     const [handleAddNoteClick, setHandleAddNoteClick] = useState(false)
     const [handleAddChecklistClick, setHandleAddChecklistClick] = useState(false)
 
@@ -19,21 +19,21 @@ export default function TripDetail(props) {
     // const [category, setCategory] = useState('')
     const incomingChecklist = checklistData.data
 
-    useEffect(() => {
-        console.log(props.location, '🟣')
+    // useEffect(() => {
+    //     console.log(props.location, '🟣')
  
-    }, [])
+    // }, [])
 
-    console.log(props.location, '🐷')
+    // console.log(props.location, '🐷')
 
     const handleAddChecklist = async (e) => {
         try {
             e.preventDefault()
             setHandleAddChecklistClick(true)
             await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/tripChecklist`, {incomingChecklist})
-            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/tripChecklist`)
-            console.log(response.data[0].items, '🤠')
-            const data = response.data[0].items
+            // const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/tripChecklist`)
+            // console.log(response.data[0].items, '🤠')
+            // const data = response.data[0].items
             
             // const fixMyChecklist = response.data.items
             // let checklistArray = [];
@@ -42,15 +42,15 @@ export default function TripDetail(props) {
             // }
 
 
-            setChecklist(data)
-            console.log(checklist, 'checklist🦊')
+            // setChecklist(data)
+            // console.log(checklist, 'checklist🦊')
 
         } catch (error) {
             console.log(error)
         }
     }
     // console.log(props.location.state.notes[0], '😻')
-    console.log(checklist, '🤯')
+    // console.log(checklist, '🤯')
     
 
     const handleAddNote = async e => {
@@ -84,8 +84,23 @@ export default function TripDetail(props) {
                         </form>
                     :
 
-                    <ChecklistTool className="tool" 
-                        tripChecklist={ props.location.state.tripChecklist[0].items }/>
+                    <ChecklistTool className="tool"
+                        tripId={ props.location.state._id }
+                        img={ props.location.state.img }
+                        name={ props.location.state.name }
+                        location={ props.location.state.location }
+                        fromDate={ props.location.state.fromDate }
+                        toDate={ props.location.state.toDate }
+                        tripChecklist={ props.location.state.tripChecklist }
+                        tripExpenses={ props.location.state.tripExpenses }
+                        notes={ props.location.state.notes }
+                        tripSchedule={ props.location.state.tripSchedule }
+                        lodgingInfo={ props.location.state.lodgingInfo }
+                        flightInfo={ props.location.state.flightInfo }
+                        handleLogout={ props.handleLogout } 
+                        currentUser={ props.currentUser } 
+                        setCurrentUser={ props.setCurrentUser } 
+                    />
 
                     }
 
@@ -97,7 +112,23 @@ export default function TripDetail(props) {
                       </form>
                     :
 
-                    <NoteTool tripnote={ props.location.state.notes } />
+                    <NoteTool 
+                        tripId={ props.location.state._id }
+                        img={ props.location.state.img }
+                        name={ props.location.state.name }
+                        location={ props.location.state.location }
+                        fromDate={ props.location.state.fromDate }
+                        toDate={ props.location.state.toDate }
+                        tripChecklist={ props.location.state.tripChecklist }
+                        tripExpenses={ props.location.state.tripExpenses }
+                        notes={ props.location.state.notes }
+                        tripSchedule={ props.location.state.tripSchedule }
+                        lodgingInfo={ props.location.state.lodgingInfo }
+                        flightInfo={ props.location.state.flightInfo }
+                        handleLogout={ props.handleLogout } 
+                        currentUser={ props.currentUser } 
+                        setCurrentUser={ props.setCurrentUser } 
+                    />
 
                     }
                     

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function TripCard(props) {
   // console.log(props.currentUser.id,'✅')
-  console.log(props.tripId, '🌈')
+  // console.log(props.tripId, '🌈')
   // console.log(props.location, '🟣')
   return(
     <div>

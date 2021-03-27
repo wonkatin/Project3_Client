@@ -2,6 +2,8 @@ import { useState } from 'react'
 // import axios from 'axios'
 
 export default function ChecklistTool(props) {
+  
+  console.log(props, '⛈')
   const [category, setCategory] = useState('')
   const [newItem, setNewItem] = useState('')
 
@@ -22,8 +24,9 @@ export default function ChecklistTool(props) {
   // }
 
 
-  // console.log(props.checklist, '⛈')
-  const filterClothingAndAccessories = props.tripChecklist.filter(item => item.category === "clothing and accessories")
+  
+  const newChecklistArray = props.tripChecklist[0].items
+  const filterClothingAndAccessories = newChecklistArray.filter(item => item.category === "clothing and accessories")
   const mapClothingAndAccessories = filterClothingAndAccessories.map((item, index) => {
     return(
       <div key={index}>
@@ -36,7 +39,7 @@ export default function ChecklistTool(props) {
       </div>
     )
   })
-  const filterToiletries = props.tripChecklist.filter(item => item.category === "toiletries")
+  const filterToiletries = newChecklistArray.filter(item => item.category === "toiletries")
   const mapToiletries = filterToiletries.map((item, index) => {
     return(
       <div key={index}>
@@ -49,7 +52,7 @@ export default function ChecklistTool(props) {
       </div>
     )
   })
-  const filterMiscellaneous = props.tripChecklist.filter(item => item.category === "miscellaneous")
+  const filterMiscellaneous = newChecklistArray.filter(item => item.category === "miscellaneous")
   const mapMiscellaneous = filterMiscellaneous.map((item, index) => {
     return(
       <div key={index}>
@@ -62,7 +65,7 @@ export default function ChecklistTool(props) {
       </div>
     )
   })
-  const filterTodo = props.tripChecklist.filter(item => item.category === "to-do")
+  const filterTodo = newChecklistArray.filter(item => item.category === "to-do")
   const mapTodo = filterTodo.map((item, index) => {
     return(
       <div key={index}>
