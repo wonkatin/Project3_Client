@@ -49,7 +49,7 @@ export default function CreateTrip(props) {
               value={location}
               onChange={e => setLocation(e.target.value)}
             />
-            <label htmlFor="from-date-input">Date</label>
+            <label htmlFor="from-date-input">Start Date</label>
             <input
               type="text"
               id="from-date-input"
@@ -57,7 +57,7 @@ export default function CreateTrip(props) {
               value={fromDate}
               onChange={e => setFromDate(e.target.value)}
             />
-            {/* <label htmlFor="to-date-input">To Date</label>
+            <label htmlFor="to-date-input">End Date</label>
             <input
               type="text"
               id="to-date-input"
@@ -65,7 +65,7 @@ export default function CreateTrip(props) {
               value={toDate}
               onChange={e => setToDate(e.target.value)}
             />
-            <label htmlFor="image-input">Image</label>
+            {/* <label htmlFor="image-input">Image</label>
             <input
               type="text"
               id="image-input"

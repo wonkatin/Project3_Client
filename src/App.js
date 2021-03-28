@@ -43,8 +43,9 @@ function App() {
           
         <div className="App">
           <Switch>
-            <Route exact path='/' component={ Welcome } />
-            
+            <Route exact path='/'
+              render={ (props) => <Welcome {...props} currentUser={ currentUser } /> }
+            />
             <Route 
               path='/users/register'
               render={ (props) => <Register {...props} currentUser={ currentUser } setCurrentUser={ setCurrentUser } /> }

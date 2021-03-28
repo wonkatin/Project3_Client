@@ -22,10 +22,24 @@ export default function About(props) {
             and eliminate the dreaded feeling of leaving behind something important.
           </p>
          
-          <Link to={`/users/${props.currentUser.id}/trips`} className="button">Get Trippin'!</Link>
+          <div className="sign-up-buttons">
+                    {props.currentUser
+                    ? <>
+                        <Link to={`users/${props.currentUser.id}/trips`} className="button">Get Trippin'!</Link>
+                    </>
+                    : <>
+                    <Link to="/users/register" className="button">Sign Up</Link>
+                    <Link to="/users/login" className="button">Log In</Link>
+                    </>
+                    }
+          </div>
 
-          <h2>Frequently Asked Questions</h2>
-          <p>FAQ info</p>
+
+
+          {/* <Link to={`/users/${props.currentUser.id}/trips`} className="button">Get Trippin'!</Link> */}
+
+          {/* <h2>Frequently Asked Questions</h2>
+          <p>FAQ info</p> */}
 
           <h2>The Team behind Trip Tracker</h2>
             <img src="" alt=""/>
