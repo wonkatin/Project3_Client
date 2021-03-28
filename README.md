@@ -105,32 +105,29 @@ Friday, Saturday, Sunday
   - Stretch Goals - work on connecting and collaborating with other users
 
 ## Routes 
-| METHOD    | URL                           |           Action          |       Redirect        |
-| :---      | :----:                        |            :----:         |         ---:          |
-|   GET     | /                             |   Display Homepage        |                       |
-|   GET     | /signup                       |   Display Signup Page     |                       |
-|   POST    | /signup                       |   Create a new user       |      /profile         |
-|   GET     | /login                        |   Display log in page     |                       |
-|   POST    | /login                        |   Input user credentials  |      /trips           |
-|   GET     | /logout                       |   Redirect to Homepage    |      /                |
-|   Get     | /profile                      |   Displays User info      |                       |
-|   PUT     | /profile                      |   Edit User info          |                       |
-|   DELETE  | /profile                      |   Delete User info        |      /                |
-|   GET     | /trips                        |   Displays all trips      |                       |
-|   POST    | /trips                        |   Add new trip            |                       |
-|   PUT     | /trips                        |   Edit trip               |      /trips           |
-|   DELETE  | /trips                        |   Delete trip             |      /trips           |
-|   GET     | /trips/:tripId                |   Display specific trip   |                       |
-|   PUT     | /trips/:tripId                |   Edit trip info          |      /trips/:id       |
-|   Delete  | /trips/:tripId                |   Delete trip info        |      /trips/:id       |
-|   GET     | /tools                        |   Display all trip tools  |                       |
-|   POST    | /trips/:tripId/tools          |   Create trip tool          |      /trips/:tripId   |
-|   PUT     | /trips/:tripId/tools          |   Edit all trip tools     |      /trips/:tripId   |
-|   DELETE  | /trips/:tripId/tools          |   Delete trip tool        |      /trips/:tripId   |
-|   GET     | /trips/:tripId/tools/:toolId  |   Display trip tool       |      /trips/:tripId   |
-|   POST    | /trips/:tripId/tools/:toolId  |   Create trip tool          |      /trips/:id/tools |
-|   PUT     | /trips/:tripId/tools/:toolId  |   Edit trip tool          |      /trips/:id/tools |
-|   DELETE  | /trips/:tripId/tools/:toolId  |   Delete trip tool        |      /trips/:id/tools |
+| METHOD    | URL                                                  |           Action          |       Redirect        |
+| :---      | :----:                                               |            :----:         |         ---:          |
+|   GET     | /                                                    |   Display Homepage        |                       |
+|   GET     | /users/register                                      |   Display Signup Page     |                       |
+|   POST    | /users/register                                      |   Create a new user       |      /account         |
+|   GET     | /users/:usersId/account                              |   Display user account    |                       |
+|   PUT     | /users/:usersId/account                              |   Edit User info          |                       |
+|   GET     | /users/:usersId/trips                                |   Display User trips      |                       |
+|   POST    | /users/:usersId/trips                                |   Create new trip         |                       |
+|   GET     | /users/:usersId/trips/:tripId                        |   Display trip            |                       |
+|   DELETE  | /users/:usersId/trips/:tripId                        |   Delete trip             |      /trips           |
+|   GET     | /users/:usersId/trips/:tripId                        |   Display trip            |                       |
+|   DELETE  | /users/:usersId/trips/:tripId                        |   Delete trip             |      /trips           |
+|   GET     | /users/:usersId/trips/:tripId/checklist              |   Display trip checklists |                       |
+|   POST    | /users/:usersId/trips/:tripId/checklist              |   Create a new checklist  |      /trips           |
+|   GET     | /users/:usersId/trips/:tripId/checklist/:checklistId |   Display a checklist     |                       |
+|   DELETE  | /users/:usersId/trips/:tripId/checklist/:checklistId |   Delete a checklist      |      /trips/:tripId   |
+|   GET     | /users/:usersId/trips/:tripId/notes                  |   Display notes           |                       |
+|   POST    | /users/:usersId/trips/:tripId/notes                  |   Create a new note       |      /trips           |
+|   GET     | /users/:usersId/trips/:tripId/notes/:notesId         |   Display a note          |                       |
+|   DELETE  | /users/:usersId/trips/:tripId/notes/:notesId         |   Delete a note           |      /trips/:tripId   |
+
+
 
 ## Database Schema
 ![model](./public/assets/model.png)
