@@ -61,14 +61,6 @@ export default function Account(props) {
         
         <div className="background-trips">
 
-            {/* <div className="account-card">
-                <img src={chrisImg} alt="chris img" className="account-img"/>
-            </div> */}
-
-            {/* <h4>Portland, OR</h4>  */}
-
-         
-
             <div className="account-form">
                 <h1>Hello {props.currentUser.username} !</h1> 
                 <form onSubmit={handleSubmit} className="update-info"> 
@@ -99,7 +91,7 @@ export default function Account(props) {
                             value={ username }
                             onChange={e => setUsername(e.target.value)}
                         />
-
+{/* 
                         <label htmlFor="account-image-input">Account Image</label>
                         <input 
                             type="text" 
@@ -107,7 +99,7 @@ export default function Account(props) {
                             id="account-image-input" 
                             // value={ img }
                             // onChange={e => setImg(e.target.value)}
-                        />
+                        /> */}
                     </div>
 
                     <div>
@@ -136,9 +128,9 @@ export default function Account(props) {
                         />
                     </div>
                 </form>
-                <form onSubmit={handleDelete}>
+                {/* <form onSubmit={handleDelete}>
                     <input type="submit" value="Delete Account"/>
-                </form>
+                </form> */}
             </div>
         </div>
     )

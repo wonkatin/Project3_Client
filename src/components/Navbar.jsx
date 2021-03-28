@@ -3,6 +3,9 @@ export default function Navbar(props) {
     
     return(
         <nav>
+            <Link className="nav-link" to='/'>
+                <span>Home</span>
+            </Link>
            <Link className="nav-link" to='/about'>
                 <span>About</span>
             </Link>
