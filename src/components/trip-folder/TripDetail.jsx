@@ -3,6 +3,8 @@ import axios from 'axios'
 import checklistData from '../tools/checklistData'
 import ChecklistTool from '../tools/ChecklistTool'
 import NoteTool from '../tools/NoteTool'
+import TripContainer from './TripContainer'
+import { Redirect, Link } from 'react-router-dom'
 // import ExpenseTool from '../tools/ExpenseTool'
 // import FlightTool from '../tools/FlightTool'
 // import LodgingTool from '../tools/LodgingTool'
@@ -83,11 +85,20 @@ export default function TripDetail(props) {
     }
 
 
+    const handleDelete = async (e) => {
+        // console.log('trip deleted')
+        // e.preventDefault()
+        await axios.delete(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}`)
+        // props.pullData()
+        // (<Redirect to={`/users/${props.currentUser.id}/trips`} component={ TripContainer } currentUser={ props.currentUser } />)
+    }
+    
+
     return(
         <div>
             <h1>Hello from TripDetail</h1>
 
-             <div className="detail-container">
+            <div className="detail-container">
                 
                 <div className="detail-header">
                     <h1>{props.location.state.name}</h1>
@@ -134,7 +145,7 @@ export default function TripDetail(props) {
                     :
 
                     <NoteTool 
-                        tripId={ props.location.state._id }
+                        tripId={ props.location.state.tripId }
                         img={ props.location.state.img }
                         name={ props.location.state.name }
                         location={ props.location.state.location }
@@ -153,6 +164,12 @@ export default function TripDetail(props) {
 
                     }
                     
+                </div>
+
+                <div className="delete-trip">
+                    <Link to={`/users/${props.currentUser.id}/trips`} className="button" onClick={ handleDelete } >
+                        Delete Trip
+                    </Link>
                 </div>
 
             </div> 
