@@ -61,14 +61,14 @@ console.log(allNotes, '🐶, AllNotes')
   const displayAllNotes = allNotes.map((note, index) => {
     return (
       <div key={index}> 
-        <p>{note.content}</p>
+        <p>- {note.content}</p>
       </div>
     )
   })
  
 
     return(
-      <div>
+      <div className="checklist">
           <form onSubmit={ handleAddNotes } >
                 <input 
                   type="text"

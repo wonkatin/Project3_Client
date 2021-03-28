@@ -93,74 +93,75 @@ export default function TripDetail(props) {
     
 
     return(
-        <div>
-            <h1>Hello from TripDetail</h1>
-
+        <div className="background-trips">
             <div className="detail-container">
                 
                 <div className="detail-header">
                     <h1>{props.location.state.name}</h1>
-                    <h4>{props.location.state.location}</h4>
+                    <h3>{props.location.state.location}</h3>
                     <h4>{props.location.state.fromDate} - {props.location.state.toDate}</h4>
                    
                 </div>
                 
                 <div className="tool-container">
-                    {!props.location.state.tripChecklist[0] && !handleAddChecklistClick ?
-                        <form onSubmit={handleAddChecklist}>
-                            <input type="submit" value="Add Trip Checklist"/>
-                            <input type="hidden"/>
+                    <div className="left-tool-field">
+                        {!props.location.state.tripChecklist[0] && !handleAddChecklistClick ?
+                            <form onSubmit={handleAddChecklist}>
+                                <input type="submit" value="Add Trip Checklist"/>
+                                <input type="hidden"/>
+                            </form>
+                        :
+                        
+                        <ChecklistTool className="tool"
+                            tripId={ props.location.state.tripId }
+                            img={ props.location.state.img }
+                            name={ props.location.state.name }
+                            location={ props.location.state.location }
+                            fromDate={ props.location.state.fromDate }
+                            toDate={ props.location.state.toDate }
+                            tripChecklist={ checklist }
+                            // tripChecklistId= {props.location.state.tripChecklist[0]._id}
+                            tripExpenses={ props.location.state.tripExpenses }
+                            notes={ props.location.state.notes }
+                            tripSchedule={ props.location.state.tripSchedule }
+                            lodgingInfo={ props.location.state.lodgingInfo }
+                            flightInfo={ props.location.state.flightInfo }
+                            handleLogout={ props.handleLogout } 
+                            currentUser={ props.currentUser } 
+                            setCurrentUser={ props.setCurrentUser } 
+                        />
+
+                        }
+                    </div>
+
+                    <div className="right-tool-field">
+                        {!props.location.state.notes[0] && !handleAddNoteClick ?
+                            <form onSubmit={handleAddNote}>
+                                <input type="submit" value="Add notes about your Trip"/>
+                                <input type="hidden"/>
                         </form>
-                    :
-                    
-                    <ChecklistTool className="tool"
-                        tripId={ props.location.state.tripId }
-                        img={ props.location.state.img }
-                        name={ props.location.state.name }
-                        location={ props.location.state.location }
-                        fromDate={ props.location.state.fromDate }
-                        toDate={ props.location.state.toDate }
-                        tripChecklist={ checklist }
-                        // tripChecklistId= {props.location.state.tripChecklist[0]._id}
-                        tripExpenses={ props.location.state.tripExpenses }
-                        notes={ props.location.state.notes }
-                        tripSchedule={ props.location.state.tripSchedule }
-                        lodgingInfo={ props.location.state.lodgingInfo }
-                        flightInfo={ props.location.state.flightInfo }
-                        handleLogout={ props.handleLogout } 
-                        currentUser={ props.currentUser } 
-                        setCurrentUser={ props.setCurrentUser } 
-                    />
+                        :
 
-                    }
+                        <NoteTool 
+                            tripId={ props.location.state.tripId }
+                            img={ props.location.state.img }
+                            name={ props.location.state.name }
+                            location={ props.location.state.location }
+                            fromDate={ props.location.state.fromDate }
+                            toDate={ props.location.state.toDate }
+                            tripChecklist={ props.location.state.tripChecklist }
+                            tripExpenses={ props.location.state.tripExpenses }
+                            notes={ props.location.state.notes }
+                            tripSchedule={ props.location.state.tripSchedule }
+                            lodgingInfo={ props.location.state.lodgingInfo }
+                            flightInfo={ props.location.state.flightInfo }
+                            handleLogout={ props.handleLogout } 
+                            currentUser={ props.currentUser } 
+                            setCurrentUser={ props.setCurrentUser } 
+                        />
 
-
-                    {!props.location.state.notes[0] && !handleAddNoteClick ?
-                        <form onSubmit={handleAddNote}>
-                            <input type="submit" value="Add notes about your Trip"/>
-                             <input type="hidden"/>
-                      </form>
-                    :
-
-                    <NoteTool 
-                        tripId={ props.location.state.tripId }
-                        img={ props.location.state.img }
-                        name={ props.location.state.name }
-                        location={ props.location.state.location }
-                        fromDate={ props.location.state.fromDate }
-                        toDate={ props.location.state.toDate }
-                        tripChecklist={ props.location.state.tripChecklist }
-                        tripExpenses={ props.location.state.tripExpenses }
-                        notes={ props.location.state.notes }
-                        tripSchedule={ props.location.state.tripSchedule }
-                        lodgingInfo={ props.location.state.lodgingInfo }
-                        flightInfo={ props.location.state.flightInfo }
-                        handleLogout={ props.handleLogout } 
-                        currentUser={ props.currentUser } 
-                        setCurrentUser={ props.setCurrentUser } 
-                    />
-
-                    }
+                        }
+                    </div>
                     
                 </div>
 
