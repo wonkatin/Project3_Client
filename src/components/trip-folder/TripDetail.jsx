@@ -70,8 +70,6 @@ export default function TripDetail(props) {
         }
     }
     
-    
-    
 
     const handleAddNote = async e => {
         e.preventDefault()
@@ -134,7 +132,7 @@ export default function TripDetail(props) {
                     :
 
                     <NoteTool 
-                        tripId={ props.location.state._id }
+                        tripId={ props.location.state.tripId }
                         img={ props.location.state.img }
                         name={ props.location.state.name }
                         location={ props.location.state.location }
