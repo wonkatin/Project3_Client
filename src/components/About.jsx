@@ -1,4 +1,9 @@
 import { Link } from "react-router-dom";
+import logo from '../img/App-logo.png'
+import chris from '../img/chris.jpg'
+import gabe from '../img/gabe.png'
+import mariia from '../img/mariia.jpeg'
+import sarah from '../img/sarah.jpeg'
 
 export default function About(props) {
   return(
@@ -12,14 +17,14 @@ export default function About(props) {
       // Footer Links
       // Set up condition for trips button
 
-        <div>
-          <img src="" alt=""/>
-          <p>
+        <div className="background-trips">
+          <img src={logo} alt="trip tracker logo" className='about-logo'/>
+          <p className="about-text">
             Trip Tracker is an app for the modern traveler, the person who plans their trip
-            through a series of emails, phone-memos, to-do lists, and post-it notes.
+            through a series of emails, phone-memos, to-do lists, and sticky notes.
             We've built a platform to help you keep everything in one place, easily accessible, and easy to update.
-            From your flight info to your packing list, Trip Tracker will help you stay organized
-            and eliminate the dreaded feeling of leaving behind something important.
+            From your flight-info to your packing list, Trip Tracker will help you stay organized
+            and eliminate the dreaded feeling of leaving something important behind.
           </p>
          
           <div className="sign-up-buttons">
@@ -41,18 +46,25 @@ export default function About(props) {
           {/* <h2>Frequently Asked Questions</h2>
           <p>FAQ info</p> */}
 
-          <h2>The Team behind Trip Tracker</h2>
-            <img src="" alt=""/>
+          <h4 className="team-header">The Team behind Trip Tracker</h4>
+          <div className="pic-container">
+            <div className="pic-card">
+            <img src={chris} alt={chris} className="bio-pic"/>
             <p>Chris</p>
-
-            <img src="" alt=""/>
+            </div>
+            <div className="pic-card">
+            <img src={mariia} alt={mariia} className="bio-pic"/>
             <p>Mariia</p>
-
-            <img src="" alt=""/>
+            </div>
+            <div className="pic-card">
+            <img src={gabe} alt={gabe} className="bio-pic"/>
             <p>Gabe</p>
-            
-            <img src="" alt=""/>
+            </div>
+            <div className="pic-card">
+            <img src={sarah} alt={sarah} className="bio-pic"/>
             <p>Sarah</p>
+            </div>
+          </div>
 
           {/* <footer>
             <a href="">Github</a>

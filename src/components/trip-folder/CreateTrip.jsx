@@ -32,23 +32,28 @@ export default function CreateTrip(props) {
 
       <div className="create-trip">
           <h4>Add a New Trip</h4>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="trip-name-input">Trip Name</label>
+          <form onSubmit={handleSubmit} className="new-trip-form">
+            <div>
+              <label htmlFor="trip-name-input">Trip Name</label>
             <input 
               type="text"
               id="trip-name-input"
-              placeholder="Trip Name"
+              placeholder="ex. '30th Birthday Trip'"
               value={name}
               onChange={e => setName(e.target.value)}
             />
+            </div>
+            <div>
             <label htmlFor="location-input">Location</label>
             <input 
               type="text"
               id="location-input"
-              placeholder="Location"
+              placeholder="ex. 'Hawaii'"
               value={location}
               onChange={e => setLocation(e.target.value)}
             />
+            </div>
+            <div>
             <label htmlFor="from-date-input">Start Date</label>
             <input
               type="text"
@@ -57,14 +62,18 @@ export default function CreateTrip(props) {
               value={fromDate}
               onChange={e => setFromDate(e.target.value)}
             />
+            </div>
+            <div>
             <label htmlFor="to-date-input">End Date</label>
             <input
               type="text"
               id="to-date-input"
-              placeholder="To Date"
+              placeholder="mm/dd/yy"
               value={toDate}
               onChange={e => setToDate(e.target.value)}
             />
+            </div>
+            
             {/* <label htmlFor="image-input">Image</label>
             <input
               type="text"
@@ -73,7 +82,10 @@ export default function CreateTrip(props) {
               value={image}
               onChange={e => setImage(e.target.value)}
             /> */}
-            <input type="submit"/>
+            <div>
+              <p></p>
+              <input type="submit" value="Create"/>
+            </div>
           </form>
       </div>
   )
