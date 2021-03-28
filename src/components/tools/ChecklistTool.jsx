@@ -19,8 +19,17 @@ export default function ChecklistTool(props) {
         checked: checked,
         category: category
       }
+      // const rememberCurrentUser = {
+      //   id: props.currentUser.id,
+      //   username: props.currentUser.username,
+      //   email: props.currentUser.email,
+      //   firstName: props.currentUser.firstName,
+      //   lastName: props.currentUser.lastName,
+      //   city: props.currentUser.city
+      // }
+        
       await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.tripId}/tripChecklist/${props.tripChecklistId}`, requestBody)
-
+      // setCurrentUser(rememberCurrentUser)
     } catch(error) {
         console.log(error)
     }
