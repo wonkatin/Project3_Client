@@ -4,14 +4,22 @@ import { useState } from 'react'
 
 export default function ChecklistTool(props) {
   
-  console.log(props, '⛈')
+  // console.log(props, '⛈')
+
+  //set state for adding a new item to the checklist
   const [category, setCategory] = useState('')
-  const [newItem, setNewItem] = useState('')
+  const [checked] = useState(false)
+  const [itemName, setItemName] = useState('')
 
   const handleAddItem = async (e) => {
     try {
       e.preventDefault()
-      await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/:userId/trips/:tripId/tripChecklist/:tripChecklistId`)
+      const requestBody = {
+        itemName: itemName,
+        checked: checked,
+        category: category
+      }
+      await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.tripId}/tripChecklist/${props.tripChecklistId}`, requestBody)
 
     } catch(error) {
         console.log(error)
@@ -21,7 +29,7 @@ export default function ChecklistTool(props) {
 
   // handleSubmit = e => {
   //   e.preventDefault()
-  //   console.log(newItem)
+  //   console.log(itemName)
   // const newClothAndAcc = [...mapClothingAndAccessories, setNewIem] ?????
   // }
 
@@ -104,8 +112,11 @@ export default function ChecklistTool(props) {
             id='item-input'
             type='text'
             placeholder='add an item'
-            onChange={e => setNewItem(e.target.value)}
-            value={newItem}
+            onChange={e => setItemName(e.target.value)}
+            value={itemName}
+        />
+        <input type="hidden"
+          value={checked}
         />
         <input
             type="submit"
