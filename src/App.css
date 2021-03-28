@@ -189,5 +189,9 @@ header {
 }
 
 .trip-card h4 {
-  margin-top: 10px;
+  margin: 10px auto 5px;
+}
+
+.trip-card h5 {
+  margin: 0px auto 10px;
 }

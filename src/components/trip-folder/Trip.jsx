@@ -9,22 +9,27 @@ import axios from 'axios'
 export default function Trips(props) {
     const [allTrips, setAllTrips] = useState([])
     
-    useEffect(() => {
-        let pullData = async () => {
-            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips`)
-            const tripInfo = response.data
-            // console.log(tripInfo)
-            let tripsArray = [];
+    const pullData = async () => {
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips`)
+        const tripInfo = response.data
+        // console.log(tripInfo)
+        let tripsArray = [];
 
-            for (const key in tripInfo) {
-                // console.log(key, tripInfo[key], '🌕')
-                tripsArray.push(tripInfo[key])
-            }
-            setAllTrips(tripsArray)
-            // console.log(tripsArray, '🌷')
+        for (const key in tripInfo) {
+            // console.log(key, tripInfo[key], '🌕')
+            tripsArray.push(tripInfo[key])
         }
+        setAllTrips(tripsArray)
+        // console.log(tripsArray, '🌷')
+    }
+
+    // useEffect(() => {
+    //     pullData()
+    // }, [props.currentUser.id])
+    
+    useEffect(() => {
         pullData()
-    }, [props.currentUser.id])
+    },[])
     
 
     const displayTrips = allTrips.map((trip, index) => {
@@ -45,7 +50,8 @@ export default function Trips(props) {
                 flightInfo={ trip.flightInfo }
                 handleLogout={ props.handleLogout } 
                 currentUser={ props.currentUser } 
-                setCurrentUser={ props.setCurrentUser } 
+                setCurrentUser={ props.setCurrentUser }
+                pullData={ pullData }
             />
             )
         })
