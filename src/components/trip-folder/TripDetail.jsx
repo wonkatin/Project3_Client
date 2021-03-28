@@ -9,7 +9,7 @@ import NoteTool from '../tools/NoteTool'
 // import ScheduleTool from '../tools/ScheduleTool'
 
 export default function TripDetail(props) {
-    // console.log(props, '🐷')
+    console.log(props, '🐷')
 
     const [checklist, setChecklist] = useState([])
     const [handleAddChecklistClick, setHandleAddChecklistClick] = useState(false)
@@ -104,7 +104,7 @@ export default function TripDetail(props) {
                     :
                     
                     <ChecklistTool className="tool"
-                        tripId={ props.location.state._id }
+                        tripId={ props.location.state.tripId }
                         img={ props.location.state.img }
                         name={ props.location.state.name }
                         location={ props.location.state.location }
