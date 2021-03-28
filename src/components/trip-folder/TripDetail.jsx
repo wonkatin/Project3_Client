@@ -9,25 +9,30 @@ import NoteTool from '../tools/NoteTool'
 // import ScheduleTool from '../tools/ScheduleTool'
 
 export default function TripDetail(props) {
-    console.log(props, '🐷')
+    // console.log(props, '🐷')
 
     const [checklist, setChecklist] = useState([])
-    const [handleAddNoteClick, setHandleAddNoteClick] = useState(false)
     const [handleAddChecklistClick, setHandleAddChecklistClick] = useState(false)
-    const [hasTrip, setHasTrip] = useState(false)
+    //checking if there is a checklist
+    const [hasTrickChecklist, setHasTripChecklist] = useState(false)
+
+    const [handleAddNoteClick, setHandleAddNoteClick] = useState(false)
+    //from checklistData.js file
     const incomingChecklist = checklistData.data
-    // const [allTrips, setAllTrips] = useState([])
-    // const [itemName, setItemName] = useState('')
-    // const [checked, setChecked] = useState(false)
-    // const [category, setCategory] = useState('')
+  
+    useEffect(() => {
+        console.log('checklist', checklist)
+        console.log('hasTrickChecklist', hasTrickChecklist)
+    }, [checklist, hasTrickChecklist])
 
     useEffect(() => {
         const getList = async() => {
             try {
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/tripChecklist`)
+                console.log('axios get response', response)
                 if(response.data.length > 0) {
-                    setHasTrip(true)
-                    const fixMyChecklist = response.data.items
+                    setHasTripChecklist(true)
+                    const fixMyChecklist = response.data[0].items
                     let checklistArray = [];
                     for(const key in fixMyChecklist){
                         checklistArray.push(fixMyChecklist[key])
@@ -42,15 +47,12 @@ export default function TripDetail(props) {
         getList()
     }, [])
 
-    useEffect(() => {
-        console.log('checklist', checklist)
-        console.log('hasTrip', hasTrip)
-    }, [checklist, hasTrip])
 
 
     const handleAddChecklist = async (e) => {
         try {
             e.preventDefault()
+            setHasTripChecklist(true)
             setHandleAddChecklistClick(true)
             const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/tripChecklist`, {incomingChecklist})
 

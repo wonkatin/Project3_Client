@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 export default function ChecklistTool(props) {
   
-  console.log(props, '⛈')
+  // console.log(props, '⛈')
   const [category, setCategory] = useState('')
   const [newItem, setNewItem] = useState('')
 
