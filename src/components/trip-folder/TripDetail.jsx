@@ -112,7 +112,7 @@ export default function TripDetail(props) {
                         fromDate={ props.location.state.fromDate }
                         toDate={ props.location.state.toDate }
                         tripChecklist={ checklist }
-                        tripChecklistId= {props.location.state.tripChecklist[0]._id}
+                        // tripChecklistId= {props.location.state.tripChecklist[0]._id}
                         tripExpenses={ props.location.state.tripExpenses }
                         notes={ props.location.state.notes }
                         tripSchedule={ props.location.state.tripSchedule }
