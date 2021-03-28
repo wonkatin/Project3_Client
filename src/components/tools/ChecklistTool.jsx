@@ -1,11 +1,23 @@
+import axios from 'axios'
 import { useState } from 'react'
 // import axios from 'axios'
 
 export default function ChecklistTool(props) {
   
-  // console.log(props, '⛈')
+  console.log(props, '⛈')
   const [category, setCategory] = useState('')
   const [newItem, setNewItem] = useState('')
+
+  const handleAddItem = async (e) => {
+    try {
+      e.preventDefault()
+      await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/:userId/trips/:tripId/tripChecklist/:tripChecklistId`)
+
+    } catch(error) {
+        console.log(error)
+    }
+  }
+
 
   // handleSubmit = e => {
   //   e.preventDefault()
@@ -84,8 +96,8 @@ export default function ChecklistTool(props) {
   return (
     <div>
     {/* // add new item to list */}
-    {/* <form onSubmit={ handleSubmit } >  when uncommented --> throwing an error, the same as is NoteTool file */}
-    <form>
+  
+    <form onSubmit={handleAddItem}>
         <label htmlFor='item-input'>Add items to checklist!</label>
 
         <input
@@ -109,10 +121,10 @@ export default function ChecklistTool(props) {
           required
           >
           <option disabled="disabled" value="" className="is-hidden">Select One</option>
-          <option>Clothing and Accessories</option>
-          <option>Toiletries</option>
-          <option>Miscellaneous</option>
-          <option>To-do List</option>
+          <option value="clothing and accessories">Clothing and Accessories</option>
+          <option value="toiletries">Toiletries</option>
+          <option value="miscellaneous">Miscellaneous</option>
+          <option value="to-do">To-do List</option>
         </select>
     </div>
 </form>
