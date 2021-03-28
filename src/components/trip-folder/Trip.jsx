@@ -8,7 +8,7 @@ import axios from 'axios'
 
 export default function Trips(props) {
     const [allTrips, setAllTrips] = useState([])
-
+    
     useEffect(() => {
         let pullData = async () => {
             const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips`)
