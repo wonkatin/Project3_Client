@@ -9,7 +9,8 @@ import NoteTool from '../tools/NoteTool'
 // import ScheduleTool from '../tools/ScheduleTool'
 
 export default function TripDetail(props) {
-    console.log(props, '🐷')
+    // console.log(props, '🐷')
+    // console.log(props.location.state.tripChecklist[0]._id, '🤡')
 
     const [checklist, setChecklist] = useState([])
     const [handleAddChecklistClick, setHandleAddChecklistClick] = useState(false)
@@ -21,15 +22,15 @@ export default function TripDetail(props) {
     const incomingChecklist = checklistData.data
   
     useEffect(() => {
-        console.log('checklist', checklist)
-        console.log('hasTrickChecklist', hasTrickChecklist)
+        // console.log('checklist', checklist)
+        // console.log('hasTrickChecklist', hasTrickChecklist)
     }, [checklist, hasTrickChecklist])
 
     useEffect(() => {
         const getList = async() => {
             try {
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/tripChecklist`)
-                console.log('axios get response', response)
+                // console.log('axios get response', response)
                 if(response.data.length > 0) {
                     setHasTripChecklist(true)
                     const fixMyChecklist = response.data[0].items
@@ -111,6 +112,7 @@ export default function TripDetail(props) {
                         fromDate={ props.location.state.fromDate }
                         toDate={ props.location.state.toDate }
                         tripChecklist={ checklist }
+                        tripChecklistId= {props.location.state.tripChecklist[0]._id}
                         tripExpenses={ props.location.state.tripExpenses }
                         notes={ props.location.state.notes }
                         tripSchedule={ props.location.state.tripSchedule }
