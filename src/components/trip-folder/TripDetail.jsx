@@ -72,7 +72,7 @@ export default function TripDetail(props) {
         }
     }
     
-
+    
     const handleAddNote = async e => {
         e.preventDefault()
         try{

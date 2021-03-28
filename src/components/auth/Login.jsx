@@ -36,29 +36,37 @@ export default function Login(props) {
     if(props.currentUser) return <Redirect to={`/users/${props.currentUser.id}/trips`} component={ TripContainer } currentUser={ props.currentUser } />
     
     return(
-        <div>
-            <h3>login form:</h3>
-            <p>{ message }</p>
-            <form onSubmit={ handleSubmit }>
-                <label htmlFor="email-input">Email:</label>
-                <input
-                    id="email-input"
-                    type="email"
-                    placeholder="user@url.com"
-                    onChange={ e => setEmail(e.target.value)}
-                    value={email}
-                />
-                <label htmlFor="password-input">Password:</label>
-                <input
-                    id="password-input"
-                    type="password"
-                    placeholder="password..."
-                    onChange={ e => setPassword(e.target.value)}
-                    value={password}
-                />
-                <input type="submit" value="login" />
+        <div className="background-trips">
+            <div className="register-form">
+                <h2>Login to Your Account</h2>
+                <p>{ message }</p>
+                <form onSubmit={ handleSubmit } className="register-info">
+                    <div className="register-input">
+                    <label htmlFor="email-input">Email: </label>
+                    <input
+                        id="email-input"
+                        type="email"
+                        placeholder="user@url.com"
+                        onChange={ e => setEmail(e.target.value)}
+                        value={email}
+                    />
+                    </div>
+                    <div className="register-input">
+                    <label htmlFor="password-input">Password: </label>
+                    <input
+                        id="password-input"
+                        type="password"
+                        placeholder="password..."
+                        onChange={ e => setPassword(e.target.value)}
+                        value={password}
+                    />
+                    </div>
+                    <div>
+                        <input type="submit" value="Login" />
+                    </div>
 
-            </form>
+                </form>
+            </div>
         </div>
     )
 }

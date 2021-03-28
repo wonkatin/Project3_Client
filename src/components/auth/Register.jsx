@@ -47,71 +47,80 @@ export default function Register(props) {
 if(props.currentUser) return <Redirect to={`/users/${props.currentUser.id}/account`} component={ Account } currentUser={ props.currentUser } />
 
     return(
-        <div>
-            <h2>Registration page</h2>
-            <p>{message}</p>
+        <div className="background-trips">
+            <div className="register-form">
 
-            <form onSubmit={ handleSubmit } >
-                <label htmlFor='username-input'>Username:</label>
+                <h2>Create an Account</h2>
+                <p>{message}</p>
 
-                <input
-                    id='username-input'
-                    type='text'
-                    placeholder='your username'
-                    onChange={e => setUsername(e.target.value)}
-                    value={username}
-                />
+                <form onSubmit={ handleSubmit } className="register-info">
+                    <div className="register-input">
+                    <label htmlFor='username-input'>Username: </label>
+                    <input
+                        id='username-input'
+                        type='text'
+                        placeholder='your Username'
+                        onChange={e => setUsername(e.target.value)}
+                        value={username}
+                    />
+                    </div>
 
-                <label htmlFor='email-input'>email:</label>
+                    <div className="register-input">
+                    <label htmlFor='email-input'>Email: </label>
+                    <input
+                        id='email-input'
+                        type='email'
+                        placeholder='your Email'
+                        onChange={e => setEmail(e.target.value)}
+                        value={email}
+                    />
+                    </div>
 
-                <input
-                    id='email-input'
-                    type='email'
-                    placeholder='your Email'
-                    onChange={e => setEmail(e.target.value)}
-                    value={email}
-                />
+                    <div className="register-input">
+                    <label htmlFor='password-input'>Password: </label>
+                    <input
+                        id='password-input'
+                        type='password'
+                        placeholder='your Password'
+                        onChange={e => setPassword(e.target.value)}
+                        value={password}
+                    />
+                    </div>
 
-                <label htmlFor='password-input'>password:</label>
-
-                <input
-                    id='password-input'
-                    type='password'
-                    placeholder='your password'
-                    onChange={e => setPassword(e.target.value)}
-                    value={password}
-                />
-
-                <input
-                    id='firstName-input'
-                    type='hidden'
-                    value={firstName}
-                />
-                <input
-                    id='lastName-input'
-                    type='hidden'
-                    value={lastName}
-                />
-                <input
-                    id='city-input'
-                    type='hidden'
-                    value={city}
-                />
-                <input
-                    id='img-input'
-                    type='hidden'
-                    value={img}
-                />
-                <input
-                    id='trips-input'
-                    type='hidden'
-                    value={trips}
-                />
-                <input 
-                    type='submit'
-                    value='Register'
-                />
-            </form>
+                    <input
+                        id='firstName-input'
+                        type='hidden'
+                        value={firstName}
+                    />
+                    <input
+                        id='lastName-input'
+                        type='hidden'
+                        value={lastName}
+                    />
+                    <input
+                        id='city-input'
+                        type='hidden'
+                        value={city}
+                    />
+                    <input
+                        id='img-input'
+                        type='hidden'
+                        value={img}
+                    />
+                    <input
+                        id='trips-input'
+                        type='hidden'
+                        value={trips}
+                    />
+                    <div>
+                    <input 
+                        type='submit'
+                        value='Register'
+                        className="register-button"
+                    />
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

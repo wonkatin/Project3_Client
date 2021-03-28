@@ -17,13 +17,13 @@ export default function TripCard(props) {
           location: props.location,
           fromDate: props.fromDate,
           toDate: props.toDate,
-          // pullData: props.pullData,
           tripChecklist: props.tripChecklist,
           tripExpenses: props.tripExpenses,
           notes: props.notes,
           tripSchedule: props.tripSchedule,
           lodgingInfo: props.lodgingInfo,
           flightInfo: props.flightInfo
+          // pullData: props.pullData,
         }}}
       >
         {/* Show me my trip */}
