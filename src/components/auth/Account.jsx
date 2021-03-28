@@ -65,12 +65,12 @@ export default function Account(props) {
                 <img src={chrisImg} alt="chris img" className="account-img"/>
             </div> */}
 
-            <h1>Hello {props.currentUser.username} !</h1> 
             {/* <h4>Portland, OR</h4>  */}
 
          
 
             <div className="account-form">
+                <h1>Hello {props.currentUser.username} !</h1> 
                 <form onSubmit={handleSubmit} className="update-info"> 
                     <div>
                         <label htmlFor="first-name-input">First Name</label>

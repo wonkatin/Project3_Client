@@ -30,7 +30,7 @@ export default function CreateTrip(props) {
   return(
 
 
-      <div>
+      <div className="create-trip">
           <h4>Add a New Trip</h4>
           <form onSubmit={handleSubmit}>
             <label htmlFor="trip-name-input">Trip Name</label>
@@ -49,7 +49,7 @@ export default function CreateTrip(props) {
               value={location}
               onChange={e => setLocation(e.target.value)}
             />
-            <label htmlFor="from-date-input">From Date</label>
+            <label htmlFor="from-date-input">Date</label>
             <input
               type="text"
               id="from-date-input"
@@ -57,7 +57,7 @@ export default function CreateTrip(props) {
               value={fromDate}
               onChange={e => setFromDate(e.target.value)}
             />
-            <label htmlFor="to-date-input">To Date</label>
+            {/* <label htmlFor="to-date-input">To Date</label>
             <input
               type="text"
               id="to-date-input"
@@ -72,7 +72,7 @@ export default function CreateTrip(props) {
               placeholder="Image"
               value={image}
               onChange={e => setImage(e.target.value)}
-            />
+            /> */}
             <input type="submit"/>
           </form>
       </div>

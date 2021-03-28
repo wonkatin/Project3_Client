@@ -26,13 +26,13 @@ export default function TripCard(props) {
           flightInfo: props.flightInfo
         }}}
       >
-        Show me my trip
-      </Link> 
+        {/* Show me my trip */}
             <div className="trip-card">
               <h2>{props.name}</h2>
               <h4>{props.location}</h4>
               {/* <img src={props.img} alt={props.location}/> */}
             </div>
+      </Link> 
     </div>
     
   )
