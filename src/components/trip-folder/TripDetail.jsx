@@ -9,48 +9,65 @@ import NoteTool from '../tools/NoteTool'
 // import ScheduleTool from '../tools/ScheduleTool'
 
 export default function TripDetail(props) {
-    // const [checklist, setChecklist] = useState([])
+    console.log(props, '🐷')
+
+    const [checklist, setChecklist] = useState([])
     const [handleAddNoteClick, setHandleAddNoteClick] = useState(false)
     const [handleAddChecklistClick, setHandleAddChecklistClick] = useState(false)
-
+    const [hasTrip, setHasTrip] = useState(false)
+    const incomingChecklist = checklistData.data
     // const [allTrips, setAllTrips] = useState([])
     // const [itemName, setItemName] = useState('')
     // const [checked, setChecked] = useState(false)
     // const [category, setCategory] = useState('')
-    const incomingChecklist = checklistData.data
 
-    // useEffect(() => {
-    //     console.log(props.location, '🟣')
- 
-    // }, [])
+    useEffect(() => {
+        const getList = async() => {
+            try {
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/tripChecklist`)
+                if(response.data.length > 0) {
+                    setHasTrip(true)
+                    const fixMyChecklist = response.data.items
+                    let checklistArray = [];
+                    for(const key in fixMyChecklist){
+                        checklistArray.push(fixMyChecklist[key])
+                    }
+                    setChecklist(checklistArray)
+                }
 
-    // console.log(props.location, '🐷')
+            } catch (error) {
+
+            }
+        }
+        getList()
+    }, [])
+
+    useEffect(() => {
+        console.log('checklist', checklist)
+        console.log('hasTrip', hasTrip)
+    }, [checklist, hasTrip])
+
 
     const handleAddChecklist = async (e) => {
         try {
             e.preventDefault()
             setHandleAddChecklistClick(true)
-            await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/tripChecklist`, {incomingChecklist})
-            // const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/tripChecklist`)
-            // console.log(response.data[0].items, '🤠')
-            // const data = response.data[0].items
-            
-            // const fixMyChecklist = response.data.items
-            // let checklistArray = [];
-            // for(const key in fixMyChecklist) {
-            //     checklistArray.push(fixMyChecklist[key])
-            // }
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/tripChecklist`, {incomingChecklist})
 
+            const fixMyChecklist = response.data.items
+            let checklistArray = [];
+            for(const key in fixMyChecklist) {
+                checklistArray.push(fixMyChecklist[key])
+            }
 
-            // setChecklist(data)
-            // console.log(checklist, 'checklist🦊')
+            setChecklist(checklistArray)
 
         } catch (error) {
             console.log(error)
         }
     }
-    // console.log(props.location.state.notes[0], '😻')
-    // console.log(checklist, '🤯')
+    
+    
     
 
     const handleAddNote = async e => {
@@ -83,7 +100,7 @@ export default function TripDetail(props) {
                             <input type="hidden"/>
                         </form>
                     :
-
+                    
                     <ChecklistTool className="tool"
                         tripId={ props.location.state._id }
                         img={ props.location.state.img }
@@ -91,7 +108,7 @@ export default function TripDetail(props) {
                         location={ props.location.state.location }
                         fromDate={ props.location.state.fromDate }
                         toDate={ props.location.state.toDate }
-                        tripChecklist={ props.location.state.tripChecklist }
+                        tripChecklist={ checklist }
                         tripExpenses={ props.location.state.tripExpenses }
                         notes={ props.location.state.notes }
                         tripSchedule={ props.location.state.tripSchedule }

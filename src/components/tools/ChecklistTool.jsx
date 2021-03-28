@@ -25,7 +25,7 @@ export default function ChecklistTool(props) {
 
 
   
-  const newChecklistArray = props.tripChecklist[0].items
+  const newChecklistArray = props.tripChecklist
   const filterClothingAndAccessories = newChecklistArray.filter(item => item.category === "clothing and accessories")
   const mapClothingAndAccessories = filterClothingAndAccessories.map((item, index) => {
     return(
