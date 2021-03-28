@@ -58,12 +58,12 @@ export default function ChecklistTool(props) {
   const filterClothingAndAccessories = newChecklistArray.filter(item => item.category === "clothing and accessories")
   const mapClothingAndAccessories = filterClothingAndAccessories.map((item, index) => {
     return(
-      <div key={index}>
+      <div key={index} className="list-item">
         <input type="checkbox"></input>
-        <h4>{item.itemName}</h4>
+        <p>{item.itemName}</p>
         {/* <form onSubmit={handleDelete}> */}
         <form>
-          <input type="submit" value="delete"/>
+          <input type="submit" value="x" className="delete-x"/>
         </form>
       </div>
     )
@@ -71,12 +71,12 @@ export default function ChecklistTool(props) {
   const filterToiletries = newChecklistArray.filter(item => item.category === "toiletries")
   const mapToiletries = filterToiletries.map((item, index) => {
     return(
-      <div key={index}>
+      <div key={index} className="list-item">
         <input type="checkbox"></input>
-        <h4>{item.itemName}</h4>
+        <p>{item.itemName}</p>
         {/* <form onSubmit={handleDelete}> */}
         <form>
-          <input type="submit" value="delete"/>
+          <input type="submit" value="x" className="delete-x"/>
         </form>
       </div>
     )
@@ -84,12 +84,12 @@ export default function ChecklistTool(props) {
   const filterMiscellaneous = newChecklistArray.filter(item => item.category === "miscellaneous")
   const mapMiscellaneous = filterMiscellaneous.map((item, index) => {
     return(
-      <div key={index}>
+      <div key={index} className="list-item">
         <input type="checkbox"></input>
-        <h4>{item.itemName}</h4>
+        <p>{item.itemName}</p>
         {/* <form onSubmit={handleDelete}> */}
         <form>
-          <input type="submit" value="delete"/>
+          <input type="submit" value="x" className="delete-x"/>
         </form>
       </div>
     )
@@ -97,11 +97,11 @@ export default function ChecklistTool(props) {
   const filterTodo = newChecklistArray.filter(item => item.category === "to-do")
   const mapTodo = filterTodo.map((item, index) => {
     return(
-      <div key={index}>
+      <div key={index} className="list-item">
         <input type="checkbox"></input>
-        <h4>{item.itemName}</h4>
+        <p>{item.itemName}</p>
         <form >
-          <input type="submit" value="delete"/>
+          <input type="submit" value="x" className="delete-x"/>
         </form>
       </div>
     )
@@ -111,11 +111,9 @@ export default function ChecklistTool(props) {
   // const toDo
 
   return (
-    <div>
-    {/* // add new item to list */}
-  
-    <form onSubmit={handleAddItem}>
-        <label htmlFor='item-input'>Add items to checklist!</label>
+    <div className="checklist">
+      <form onSubmit={handleAddItem}>
+        <label htmlFor='item-input'>Add item to checklist </label>
 
         <input
             id='item-input'
@@ -132,46 +130,49 @@ export default function ChecklistTool(props) {
             value="Add"
         />
 
-    <div>
-      <label className="label">Category</label>
-        <select
-          name="category"
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          required
-          >
-          <option disabled="disabled" value="" className="is-hidden">Select One</option>
-          <option value="clothing and accessories">Clothing and Accessories</option>
-          <option value="toiletries">Toiletries</option>
-          <option value="miscellaneous">Miscellaneous</option>
-          <option value="to-do">To-do List</option>
-        </select>
+        <div>
+          <label className="label">Category </label>
+            <select
+              name="category"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              required
+              >
+              <option disabled="disabled" value="" className="is-hidden">Select One</option>
+              <option value="clothing and accessories">Clothing and Accessories</option>
+              <option value="toiletries">Toiletries</option>
+              <option value="miscellaneous">Miscellaneous</option>
+              <option value="to-do">To-do List</option>
+            </select>
+        </div>
+      </form>
+      <h2>Checklist ✔️</h2>
+      <div className="category-container">
+      <h4>Clothing and Accessories</h4>
+        <div className="list-container">
+          {mapClothingAndAccessories}
+        </div>
+      </div>
+      <div className="category-container">
+      <h4>Toiletries</h4>
+        <div className="list-container">
+          {mapToiletries}
+        </div>
+      </div>
+      <div className="category-container">
+      <h4>Miscellaneous</h4>
+        <div className="list-container">
+          {mapMiscellaneous}
+        </div>
+      </div>
+      <div className="category-container">
+      <h4>To-do List</h4>
+        <div className="list-container">
+          {mapTodo}
+        </div>
+      </div>
+        
     </div>
-</form>
-
-
-
-      <div>
-          <h1>Checklist ✔️</h1>
-          <div>
-          <h2>Clothing and Accessories</h2>
-            {mapClothingAndAccessories}
-          </div>
-          <div>
-          <h2>Toiletries</h2>
-            {mapToiletries}
-          </div>
-          <div>
-          <h2>Miscellaneous</h2>
-            {mapMiscellaneous}
-          </div>
-          <div>
-          <h2>To-do List</h2>
-            {mapTodo}
-          </div>
-          
-      </div>
-      </div>
   )
 }
 

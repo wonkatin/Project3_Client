@@ -59,10 +59,12 @@ useEffect(() => {
   const displayAllNotes = allNotes.map((note, index) => {
     return (
       <div key={index}> 
+
         <p>{note.content}</p>
           {/* <form onSubmit={ handleDeleteNotes } >
             <input type="submit" value="Delete"/>
           </form> */}
+
       </div>
     )
   })
@@ -80,7 +82,7 @@ useEffect(() => {
   // }
 
     return(
-      <div>
+      <div className="checklist">
           <form onSubmit={ handleAddNotes } >
                 <input 
                   type="text"

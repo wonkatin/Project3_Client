@@ -7,15 +7,9 @@ import sarah from '../img/sarah.jpeg'
 
 export default function About(props) {
   return(
-
-    // Needs:
-      // classNames and styling
-      // App Logo
     // Stretch:
       // FAQ info
-      // Profile Pictures
       // Footer Links
-      // Set up condition for trips button
 
         <div className="background-trips">
           <img src={logo} alt="trip tracker logo" className='about-logo'/>
