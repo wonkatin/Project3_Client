@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom'
 
 
 export default function TripDetail(props) {
- 
     const [checklist, setChecklist] = useState([])
+
     const [handleAddChecklistClick, setHandleAddChecklistClick] = useState(false)
     //checking if there is a checklist
     const [hasTripChecklist, setHasTripChecklist] = useState(false)
@@ -34,23 +34,23 @@ export default function TripDetail(props) {
                 }
                 setChecklist(checklistArray)
             }
-            
+        
         } catch (error) { 
             console.log(error)
         }
     }
+    
+    useEffect(() => {
+        getList()
+        
+    }, [])
+    
     useEffect(() => {
         if(props.location.state.tripChecklist > 0 ) {
             setTripChecklistId(props.location.state.tripChecklist[0]._id)
             setChecklist(props.location.state.tripChecklist[0].items)
         }
-        
     }, [checklist, hasTripChecklist, props.location.state.tripChecklist])
-
-    useEffect(() => {
-        getList()
-    }, [])
-
 
 
     const handleAddChecklist = async (e) => {
@@ -67,7 +67,7 @@ export default function TripDetail(props) {
 
             setChecklist(checklistArray)
             setTripChecklistId(response.data._id)
-
+          
         } catch (error) {
             console.log(error)
         }
@@ -123,13 +123,9 @@ export default function TripDetail(props) {
                             location={ props.location.state.location }
                             fromDate={ props.location.state.fromDate }
                             toDate={ props.location.state.toDate }
-                            tripChecklist={ checklist }
+                            checklist={ checklist }
                             tripChecklistId= { tripChecklistId }
-                            tripExpenses={ props.location.state.tripExpenses }
                             notes={ props.location.state.notes }
-                            tripSchedule={ props.location.state.tripSchedule }
-                            lodgingInfo={ props.location.state.lodgingInfo }
-                            flightInfo={ props.location.state.flightInfo }
                             handleLogout={ props.handleLogout } 
                             currentUser={ props.currentUser } 
                             setCurrentUser={ props.setCurrentUser } 
@@ -154,11 +150,7 @@ export default function TripDetail(props) {
                             fromDate={ props.location.state.fromDate }
                             toDate={ props.location.state.toDate }
                             tripChecklist={ props.location.state.tripChecklist }
-                            tripExpenses={ props.location.state.tripExpenses }
                             notes={ props.location.state.notes }
-                            tripSchedule={ props.location.state.tripSchedule }
-                            lodgingInfo={ props.location.state.lodgingInfo }
-                            flightInfo={ props.location.state.flightInfo }
                             handleLogout={ props.handleLogout } 
                             currentUser={ props.currentUser } 
                             setCurrentUser={ props.setCurrentUser } 
