@@ -2,7 +2,6 @@ import CreateTrip from "./CreateTrip"
 import Trip from './Trip'
 
 export default function TripContainer(props) {
-    // console.log(props.currentUser,'✅');
     return(
         <div className="background-trips">
             <h1 className="my-trips">My Trips</h1>

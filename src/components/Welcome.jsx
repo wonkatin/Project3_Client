@@ -26,4 +26,3 @@ export default function Welcome(props) {
             </div>
     )
 }
-// if(props.currentUser){}

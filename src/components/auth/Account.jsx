@@ -1,9 +1,5 @@
-// Update current user in state?
-
 import { useState } from 'react'
 import axios from 'axios'
-// import chrisImg from '../../img/chris.jpg'
-// import imgLogo from '../../img/App-logo.png'
 import { Redirect } from 'react-router'
 
 export default function Account(props) {

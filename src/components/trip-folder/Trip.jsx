@@ -2,7 +2,7 @@ import  { useState, useEffect } from 'react'
 import TripCard from './TripCard.jsx'
 import axios from 'axios'
 
-// Needs:
+
     // Possible stretch goal links with conditionals for sorting trips by date
     
 
@@ -12,15 +12,12 @@ export default function Trips(props) {
     const pullData = async () => {
         const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips`)
         const tripInfo = response.data
-        // console.log(tripInfo)
         let tripsArray = [];
 
         for (const key in tripInfo) {
-            // console.log(key, tripInfo[key], '🌕')
             tripsArray.push(tripInfo[key])
         }
         setAllTrips(tripsArray)
-        // console.log(tripsArray, '🌷')
     }
 
     // useEffect(() => {
