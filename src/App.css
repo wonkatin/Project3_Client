@@ -343,3 +343,8 @@ header {
   flex-flow: row;
   justify-content: space-around;
 }
+
+.right-tool-field {
+  display: flex;
+  flex-direction: column;
+}

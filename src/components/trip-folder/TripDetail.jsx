@@ -134,57 +134,59 @@ export default function TripDetail(props) {
 
                         }
                     </div>
-
                     <div className="right-tool-field">
-                        {!props.location.state.notes[0] && !handleAddNoteClick ?
-                            <form onSubmit={handleAddNote}>
-                                <input type="submit" value="Add notes about your Trip"/>
-                                <input type="hidden"/>
-                        </form>
-                        :
+                        <div>
+                            {!props.location.state.notes[0] && !handleAddNoteClick ?
+                                <form onSubmit={handleAddNote}>
+                                    <input type="submit" value="Add notes about your Trip"/>
+                                    <input type="hidden"/>
+                            </form>
+                            :
 
-                        <NoteTool 
-                            tripId={ props.location.state.tripId }
-                            img={ props.location.state.img }
-                            name={ props.location.state.name }
-                            location={ props.location.state.location }
-                            fromDate={ props.location.state.fromDate }
-                            toDate={ props.location.state.toDate }
-                            tripChecklist={ props.location.state.tripChecklist }
-                            notes={ props.location.state.notes }
-                            handleLogout={ props.handleLogout } 
-                            currentUser={ props.currentUser } 
-                            setCurrentUser={ props.setCurrentUser } 
-                        />
+                            <NoteTool 
+                                tripId={ props.location.state.tripId }
+                                img={ props.location.state.img }
+                                name={ props.location.state.name }
+                                location={ props.location.state.location }
+                                fromDate={ props.location.state.fromDate }
+                                toDate={ props.location.state.toDate }
+                                tripChecklist={ props.location.state.tripChecklist }
+                                notes={ props.location.state.notes }
+                                handleLogout={ props.handleLogout } 
+                                currentUser={ props.currentUser } 
+                                setCurrentUser={ props.setCurrentUser } 
+                            />
 
-                        }
+                            }
+                        </div>
+
+                        <div className="right-tool-field">
+                            {!props.location.state.notes[0] && !handleAddNoteClick ?
+                                <form onSubmit={handleAddNote}>
+                                    <input type="submit" value="Add notes about your Trip"/>
+                                    <input type="hidden"/>
+                            </form>
+                            :
+
+                            <ExpenseTool 
+                                tripId={ props.location.state.tripId }
+                                img={ props.location.state.img }
+                                name={ props.location.state.name }
+                                location={ props.location.state.location }
+                                fromDate={ props.location.state.fromDate }
+                                toDate={ props.location.state.toDate }
+                                tripChecklist={ props.location.state.tripChecklist }
+                                notes={ props.location.state.notes }
+                                expenses={ props.location.state.expenses }
+                                handleLogout={ props.handleLogout } 
+                                currentUser={ props.currentUser } 
+                                setCurrentUser={ props.setCurrentUser } 
+                            />
+
+                            }
+                        </div>
                     </div>
-
-                    <div className="right-tool-field">
-                        {!props.location.state.notes[0] && !handleAddNoteClick ?
-                            <form onSubmit={handleAddNote}>
-                                <input type="submit" value="Add notes about your Trip"/>
-                                <input type="hidden"/>
-                        </form>
-                        :
-
-                        <ExpenseTool 
-                            tripId={ props.location.state.tripId }
-                            img={ props.location.state.img }
-                            name={ props.location.state.name }
-                            location={ props.location.state.location }
-                            fromDate={ props.location.state.fromDate }
-                            toDate={ props.location.state.toDate }
-                            tripChecklist={ props.location.state.tripChecklist }
-                            notes={ props.location.state.notes }
-                            expenses={ props.location.state.expenses }
-                            handleLogout={ props.handleLogout } 
-                            currentUser={ props.currentUser } 
-                            setCurrentUser={ props.setCurrentUser } 
-                        />
-
-                        }
-                    </div>
+                        
                     
                 </div>
 
