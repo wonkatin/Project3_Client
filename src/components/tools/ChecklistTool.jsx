@@ -10,16 +10,40 @@ export default function ChecklistTool(props) {
   const [itemName, setItemName] = useState('')
   const [tripId, setTripId] = useState('')
   const [tripChecklistId, setTripChecklistId] = useState('')
-  // const [tripChecklist, setTripChecklist] = useState([])
-  // console.log(tripChecklist)
+  const [checklist, setChecklist] = useState([])
+  console.log(props.checklist, 'it the props')
+  
   useEffect(() => {
     setTripId(props.tripId)
     setTripChecklistId(props.tripChecklistId)
     // setTripChecklist(props.tripChecklist)
-  }, [props.tripChecklist, props.tripChecklistId, props.tripId])
+  }, [props.tripChecklistId, props.tripId])
 
-  
-  
+  const getList = async() => {
+    try {
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.tripId}/tripChecklist`)
+    
+        if(response.data.length > 0) {
+            
+            setTripChecklistId(response.data[0]._id)
+            const fixMyChecklist = response.data[0].items
+            let checklistArray = [];
+            for(const key in fixMyChecklist){
+                checklistArray.push(fixMyChecklist[key])
+            }
+            setChecklist(checklistArray)
+        }
+    } catch (error) { 
+        console.log(error)
+    }
+  }
+
+  useEffect(() => {
+      getList()
+
+  }, [])
+
+
   const handleAddItem = async (e) => {
     try {
       e.preventDefault()
@@ -32,6 +56,8 @@ export default function ChecklistTool(props) {
       }
      
       const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.tripId}/tripChecklist/${props.tripChecklistId}`, requestBody)
+    
+      getList()
       console.log(response, "🌶")
     } catch(error) {
         console.log(error)
@@ -47,12 +73,16 @@ export default function ChecklistTool(props) {
     e.preventDefault()
     const itemId = e.target[1].defaultValue
     await axios.delete(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.tripId}/tripChecklist/${props.tripChecklistId}/items/${itemId}`)
+    getList()
   }
 
-
-  
-  const newChecklistArray = props.tripChecklist
-
+  let newChecklistArray = []
+  if(checklist.length > 0){
+    newChecklistArray = checklist
+  } else {
+    newChecklistArray = props.checklist
+  }
+  console.log(checklist, 'checklist')
   const filterClothingAndAccessories = newChecklistArray.filter(item => item.category === "clothing and accessories")
   const mapClothingAndAccessories = filterClothingAndAccessories.map((item, index) => {
     const itemId = item._id
@@ -62,7 +92,7 @@ export default function ChecklistTool(props) {
         <p>{item.itemName}</p>
         <form onSubmit={handleDeleteItem} >
           <input type="submit" value="x" className="delete-x"/>
-          <input className="item-index" type="hidden" value={itemId}/>
+          <input className="item-id" type="hidden" value={itemId}/>
         </form>
       </div>
     )
@@ -76,7 +106,7 @@ export default function ChecklistTool(props) {
         <p>{item.itemName}</p>
         <form onSubmit={handleDeleteItem} >
           <input type="submit" value="x" className="delete-x"/>
-          <input className="item-index" type="hidden" value={itemId}/>
+          <input className="item-id" type="hidden" value={itemId}/>
         </form>
       </div>
     )
@@ -90,7 +120,7 @@ export default function ChecklistTool(props) {
         <p>{item.itemName}</p>
         <form onSubmit={handleDeleteItem} >
           <input type="submit" value="x" className="delete-x"/>
-          <input className="item-index" type="hidden" value={itemId}/>
+          <input className="item-id" type="hidden" value={itemId}/>
         </form>
       </div>
     )
@@ -104,7 +134,7 @@ export default function ChecklistTool(props) {
         <p>{item.itemName}</p>
         <form onSubmit={handleDeleteItem} >
           <input type="submit" value="x" className="delete-x"/>
-          <input className="item-index" type="hidden" value={itemId}/>
+          <input className="item-id" type="hidden" value={itemId}/>
         </form>
       </div>
     )

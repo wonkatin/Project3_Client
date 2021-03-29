@@ -87,7 +87,7 @@ export default function Account(props) {
                             value={ username }
                             onChange={e => setUsername(e.target.value)}
                         />
-{/* 
+                        {/* 
                         <label htmlFor="account-image-input">Account Image</label>
                         <input 
                             type="text" 
