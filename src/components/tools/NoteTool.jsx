@@ -2,24 +2,10 @@ import { useState } from 'react'
 import axios from 'axios'
 
 export default function NoteTool(props) {
-  // const [tripNote, setTripNote] = useState([])
-  // const [noteId, setNoteId] = useState([])
   const [allNotes, setAllNotes] = useState([])
   const [content, setContent] = useState('')
   const [title] = useState('')
   const [date] = useState('')
-
-
-
-  // const getAnId = () => {
-  //   let noteIdArray = []
-  //   const notes = props.notes
-  //   for(const key in notes){
-  //     noteIdArray.push(notes[key])
-  //   }
-  //   setNoteId(noteIdArray)
-  // }
-  // getAnId()
 
 
   const getNotes = async () => {
@@ -61,6 +47,7 @@ export default function NoteTool(props) {
       }
   }
 
+  
   const handleDeleteNotes = async e => {
     try{
       e.preventDefault()
@@ -107,27 +94,3 @@ export default function NoteTool(props) {
       </div>
   )
 }
-
-
-
-// useEffect(() => {
-//   fetchTips()
-// }, [])
-
-// const fetchTips = (callback) => {
-//   const noteArr = []
-//   axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.tripId}/notes`)
-//   .then(function (response) {
-//         console.log(response.data)
-//         for (let i = 0; i < response.data.length; i++) {
-//           if (response.data[i].category > 0) {
-//               noteArr.push(response.data[i])
-//           } 
-//         }
-//   }).then (() => {
-//       //similarly, i would not be abot to access newArr if this was not in another .then
-//       setTripNote(noteArr)
-//       console.log(tripNote, '😈')
-//   })
-// }
-// console.log(tripNote, '🥲')
