@@ -2,17 +2,32 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 export default function NoteTool(props) {
+// const [tripNote, setTripNote] = useState([])
+const [noteId, setNoteId] = useState([])
 const [allNotes, setAllNotes] = useState([])
 const [content, setContent] = useState('')
 const [title, setTitle] = useState('')
 const [date, setDate] = useState('')
-const [noteId, setNoteId] = useState('')
+
+console.log(props.notes, '🥶')//right id of note[0]
+
+// const getAnId = () => {
+//   let noteIdArray = []
+//   const notes = props.notes
+//   for(const key in notes){
+//     noteIdArray.push(notes[key])
+//   }
+//   setNoteId(noteIdArray)
+// }
+// getAnId()
+// // console.log(noteIdArray, '🍓')
+// console.log(noteId, '🍭')
 
 const getNotes = async () => {
   try{
     const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.tripId}/notes`)
     //  console.log(response.data._id, "😇")
-    //  setNoteId(response.data._id)
+    //  setNoteId(response.data._id, '🍿')
 
     if(response.data.length > 0) {
       const fixMyNotes = response.data
@@ -21,26 +36,26 @@ const getNotes = async () => {
       for(const key in fixMyNotes){
         notesArr.push(fixMyNotes[key])
       }
-      console.log('🦋', fixMyNotes)
       setAllNotes(notesArr)
-      // console.log('🌸', allNotes)
+
+      console.log('🦋', fixMyNotes)
+      console.log('🌸', allNotes)
     }
   }catch(err) {
     console.log(err)
   }
 }
-console.log('🌸', allNotes)
+console.log('🔥', allNotes)
 
 useEffect(() => {
   getNotes()
 }, [])
 
-
   const handleAddNotes = async (e) => {
       e.preventDefault()
       try {
         const requestBody = {
-          _id: noteId,
+          // _id: noteId,
           content: content,
           title: title,
           date: date
@@ -55,31 +70,28 @@ useEffect(() => {
           console.log(err)
         }
   }
-
+  
+  const handleDeleteNotes = async e => {
+    try{
+      e.preventDefault()
+      const response = await axios.delete(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.tripId}/notes/${noteId}`)
+      // console.log(response, 'response')
+    }catch(error){
+      console.log(error)
+    }
+  }
+  
   const displayAllNotes = allNotes.map((note, index) => {
     return (
       <div key={index}> 
-
         <p>{note.content}</p>
-          {/* <form onSubmit={ handleDeleteNotes } >
+          <form onSubmit={ handleDeleteNotes } >
             <input type="submit" value="Delete"/>
-          </form> */}
-
+          </form>
       </div>
     )
   })
-  
   console.log(displayAllNotes, '✅')
-
-  // const handleDeleteNotes = async e => {
-  //   try{
-  //     e.preventDefault()
-  //     const response = await axios.delete(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.tripId}/notes/${nd}`)
-  //     // console.log(response, 'response')
-  //   }catch(error){
-  //     console.log(error)
-  //   }
-  // }
 
     return(
       <div className="checklist">
@@ -101,3 +113,27 @@ useEffect(() => {
       </div>
   )
 }
+
+
+
+// useEffect(() => {
+//   fetchTips()
+// }, [])
+
+// const fetchTips = (callback) => {
+//   const noteArr = []
+//   axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.tripId}/notes`)
+//   .then(function (response) {
+//         console.log(response.data)
+//         for (let i = 0; i < response.data.length; i++) {
+//           if (response.data[i].category > 0) {
+//               noteArr.push(response.data[i])
+//           } 
+//         }
+//   }).then (() => {
+//       //similarly, i would not be abot to access newArr if this was not in another .then
+//       setTripNote(noteArr)
+//       console.log(tripNote, '😈')
+//   })
+// }
+// console.log(tripNote, '🥲')
