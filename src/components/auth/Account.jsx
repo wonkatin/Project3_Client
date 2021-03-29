@@ -43,18 +43,18 @@ export default function Account(props) {
         }
     }
 
-    const handleDelete = async e => {
-        e.preventDefault()
-        // get our jwt from local storage
-        const token = localStorage.getItem('jwtToken')
-        // make some Auth headers
-        const authHeaders = {
-            'Authorization': token
-        }
-        await axios.delete(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/account`, { headers: authHeaders})
-        localStorage.removeItem('jwtToken')
-        setShouldRedir(true)
-    }
+    // const handleDelete = async e => {
+    //     e.preventDefault()
+    //     // get our jwt from local storage
+    //     const token = localStorage.getItem('jwtToken')
+    //     // make some Auth headers
+    //     const authHeaders = {
+    //         'Authorization': token
+    //     }
+    //     await axios.delete(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/account`, { headers: authHeaders})
+    //     localStorage.removeItem('jwtToken')
+    //     setShouldRedir(true)
+    // }
 
     return(
         shouldRedir ? <Redirect to={`/users/${props.currentUser.id}/trips`}/> :

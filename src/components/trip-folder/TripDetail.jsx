@@ -3,50 +3,51 @@ import axios from 'axios'
 import checklistData from '../tools/checklistData'
 import ChecklistTool from '../tools/ChecklistTool'
 import NoteTool from '../tools/NoteTool'
-import TripContainer from './TripContainer'
-import { Redirect, Link } from 'react-router-dom'
-// import ExpenseTool from '../tools/ExpenseTool'
-// import FlightTool from '../tools/FlightTool'
-// import LodgingTool from '../tools/LodgingTool'
-// import ScheduleTool from '../tools/ScheduleTool'
+import { Link } from 'react-router-dom'
+
 
 export default function TripDetail(props) {
-    // console.log(props, '🐷')
-    // console.log(props.location.state.tripChecklist[0]._id, '🤡')
-
+ 
     const [checklist, setChecklist] = useState([])
     const [handleAddChecklistClick, setHandleAddChecklistClick] = useState(false)
     //checking if there is a checklist
-    const [hasTrickChecklist, setHasTripChecklist] = useState(false)
-
+    const [hasTripChecklist, setHasTripChecklist] = useState(false)
+    
     const [handleAddNoteClick, setHandleAddNoteClick] = useState(false)
+
+    const [tripChecklistId, setTripChecklistId] = useState('')
     //from checklistData.js file
     const incomingChecklist = checklistData.data
-  
-    useEffect(() => {
-        // console.log('checklist', checklist)
-        // console.log('hasTrickChecklist', hasTrickChecklist)
-    }, [checklist, hasTrickChecklist])
-
-    useEffect(() => {
-        const getList = async() => {
-            try {
-                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/tripChecklist`)
-                // console.log('axios get response', response)
-                if(response.data.length > 0) {
-                    setHasTripChecklist(true)
-                    const fixMyChecklist = response.data[0].items
-                    let checklistArray = [];
-                    for(const key in fixMyChecklist){
-                        checklistArray.push(fixMyChecklist[key])
-                    }
-                    setChecklist(checklistArray)
+    
+    
+    const getList = async() => {
+        try {
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/tripChecklist`)
+        
+            if(response.data.length > 0) {
+                setHasTripChecklist(true)
+                setTripChecklistId(response.data[0]._id)
+                const fixMyChecklist = response.data[0].items
+                let checklistArray = [];
+                for(const key in fixMyChecklist){
+                    checklistArray.push(fixMyChecklist[key])
                 }
-
-            } catch (error) {
-
+                setChecklist(checklistArray)
             }
+            
+        } catch (error) { 
+            console.log(error)
         }
+    }
+    useEffect(() => {
+        if(props.location.state.tripChecklist > 0 ) {
+            setTripChecklistId(props.location.state.tripChecklist[0]._id)
+            setChecklist(props.location.state.tripChecklist[0].items)
+        }
+        
+    }, [checklist, hasTripChecklist, props.location.state.tripChecklist])
+
+    useEffect(() => {
         getList()
     }, [])
 
@@ -58,7 +59,6 @@ export default function TripDetail(props) {
             setHasTripChecklist(true)
             setHandleAddChecklistClick(true)
             const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/tripChecklist`, {incomingChecklist})
-
             const fixMyChecklist = response.data.items
             let checklistArray = [];
             for(const key in fixMyChecklist) {
@@ -66,10 +66,12 @@ export default function TripDetail(props) {
             }
 
             setChecklist(checklistArray)
+            setTripChecklistId(response.data._id)
 
         } catch (error) {
             console.log(error)
         }
+       
     }
     
     
@@ -82,13 +84,15 @@ export default function TripDetail(props) {
         }
     }
 
-
+    // delete trip
     const handleDelete = async (e) => {
-        // console.log('trip deleted')
-        // e.preventDefault()
-        await axios.delete(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}`)
-        // props.pullData()
-        // (<Redirect to={`/users/${props.currentUser.id}/trips`} component={ TripContainer } currentUser={ props.currentUser } />)
+        try {
+            await axios.delete(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}`)
+
+        } catch (error) {
+            console.log(error)
+        }
+        
     }
     
 
@@ -120,7 +124,7 @@ export default function TripDetail(props) {
                             fromDate={ props.location.state.fromDate }
                             toDate={ props.location.state.toDate }
                             tripChecklist={ checklist }
-                            // tripChecklistId= {props.location.state.tripChecklist[0]._id}
+                            tripChecklistId= { tripChecklistId }
                             tripExpenses={ props.location.state.tripExpenses }
                             notes={ props.location.state.notes }
                             tripSchedule={ props.location.state.tripSchedule }

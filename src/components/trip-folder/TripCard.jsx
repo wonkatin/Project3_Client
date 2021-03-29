@@ -1,12 +1,6 @@
-import { Link } from "react-router-dom";
-
-// Need:
-  // Figure out how to set DB image as background image.
+import { Link } from "react-router-dom"
 
 export default function TripCard(props) {
-  console.log(props,'✅')
-  // console.log(props.tripId, '🌈')
-  // console.log(props.location, '🟣')
   return(
     <div>
       <Link to={{
@@ -23,7 +17,7 @@ export default function TripCard(props) {
           tripSchedule: props.tripSchedule,
           lodgingInfo: props.lodgingInfo,
           flightInfo: props.flightInfo
-          // pullData: props.pullData,
+         
         }}}
       >
         {/* Show me my trip */}

@@ -1,5 +1,4 @@
 import { useState } from 'react'
-// import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
 export default function CreateTrip(props) {
@@ -8,7 +7,7 @@ export default function CreateTrip(props) {
   const [location, setLocation] = useState('')
   const [fromDate, setFromDate] = useState('')
   const [toDate, setToDate] = useState('')
-  const [image, setImage] = useState('')
+  const [image] = useState('')
 
   const handleSubmit = async (e) => {
     // e.preventDefault() //in purpose to refresh the page!
