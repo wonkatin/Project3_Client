@@ -18,7 +18,7 @@ export default function ChecklistTool(props) {
     setTripChecklistId(props.tripChecklistId)
     // setTripChecklist(props.tripChecklist)
   }, [props.tripChecklistId, props.tripId])
-  console.log(tripChecklistId, 'trip checklist ID')
+  // console.log(tripChecklistId, 'trip checklist ID')
 
   const getList = async() => {
     try {
@@ -57,10 +57,10 @@ export default function ChecklistTool(props) {
       }
      
       const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.tripId}/tripChecklist/${props.tripChecklistId}`, requestBody)
-      console.log(response.data.tripChecklist.items, 'axios add item response')
+      // console.log(response.data.tripChecklist.items, 'axios add item response')
       setChecklist(response.data.tripChecklist.items)
       getList()
-      console.log(response, "🌶")
+      // console.log(response, "🌶")
     } catch(error) {
         console.log(error)
     }
@@ -84,7 +84,7 @@ export default function ChecklistTool(props) {
   } else {
     newChecklistArray = props.checklist
   }
-  console.log(checklist, 'checklist')
+  // console.log(checklist, 'checklist')
   const filterClothingAndAccessories = newChecklistArray.filter(item => item.category === "clothing and accessories")
   const mapClothingAndAccessories = filterClothingAndAccessories.map((item, index) => {
     const itemId = item._id
