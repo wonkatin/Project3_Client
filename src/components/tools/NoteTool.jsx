@@ -77,10 +77,10 @@ export default function NoteTool(props) {
     const noteId = note._id
     console.log(note._id, 'note')
     return (
-      <div key={index}> 
+      <div key={index} className="note-item"> 
         <p>{note.content}</p>
           <form onSubmit={ handleDeleteNotes } >
-            <input type="submit" value="Delete"/>
+            <input type="submit" value="delete" className="delete-note" />
             <input className="note-id" type="hidden" value={noteId}/>
           </form>
       </div>
