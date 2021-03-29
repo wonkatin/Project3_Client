@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 
 export default function NoteTool(props) {
@@ -40,9 +40,9 @@ export default function NoteTool(props) {
   }
 
 
-  useEffect(() => {
-    getNotes()
-  }, [])
+  // useEffect(() => {
+  //   getNotes()
+  // }, [])
 
   const handleAddNotes = async (e) => {
       e.preventDefault()
@@ -53,7 +53,7 @@ export default function NoteTool(props) {
           date: date
         }
 
-        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.tripId}/notes`, requestBody)
+        await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.tripId}/notes`, requestBody)
           getNotes()
           setContent('')
       } catch(err) {
@@ -66,7 +66,7 @@ export default function NoteTool(props) {
       e.preventDefault()
       console.log(e, 'target')
       const noteId = e.target[1].defaultValue
-      const response = await axios.delete(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.tripId}/notes/${noteId}`)
+      await axios.delete(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.tripId}/notes/${noteId}`)
       getNotes()
     }catch(error){
       console.log(error)

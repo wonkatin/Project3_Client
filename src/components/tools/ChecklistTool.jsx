@@ -18,6 +18,7 @@ export default function ChecklistTool(props) {
     setTripChecklistId(props.tripChecklistId)
     // setTripChecklist(props.tripChecklist)
   }, [props.tripChecklistId, props.tripId])
+  console.log(tripChecklistId, 'trip checklist ID')
 
   const getList = async() => {
     try {
@@ -56,7 +57,8 @@ export default function ChecklistTool(props) {
       }
      
       const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.tripId}/tripChecklist/${props.tripChecklistId}`, requestBody)
-    
+      console.log(response.data.tripChecklist.items, 'axios add item response')
+      setChecklist(response.data.tripChecklist.items)
       getList()
       console.log(response, "🌶")
     } catch(error) {
