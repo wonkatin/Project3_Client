@@ -83,7 +83,7 @@ header {
   background-image: url("./img/pink-sky.jpeg");
   background-size: cover;
   box-shadow: inset 100em 100em rgba(255, 255, 255, 0.4);
-  height: 100vh;
+  height: 2000px;
   padding-top: 20px;
   background-repeat: repeat;
 }
@@ -280,6 +280,18 @@ header {
   font-size: 90%;
 }
 
+.note-item {
+  display: flex;
+  justify-content: center;
+  flex-direction: row wrap;
+  align-items: center;
+}
+
+.note-item p {
+  margin: 10px auto 5px;
+  font-size: 90%;
+}
+
 .delete-x {
   cursor: pointer;
   border-radius: 100%;
@@ -290,6 +302,20 @@ header {
 }
 
 .delete-x:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(255, 100, 100);
+}
+
+.delete-note {
+  cursor: pointer;
+  border-radius: 10%;
+  color: rgb(255, 255, 255);
+  border: 0px solid black;
+  background-color: rgb(255, 100, 100, .5);
+  transition-duration: .4s;
+}
+
+.delete-note:hover {
   color: rgb(255, 255, 255);
   background-color: rgb(255, 100, 100);
 }
