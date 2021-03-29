@@ -1,114 +1,114 @@
 import axios from 'axios'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 // import axios from 'axios'
 
 export default function ChecklistTool(props) {
-  
-  // console.log(props, '⛈')
 
   //set state for adding a new item to the checklist
   const [category, setCategory] = useState('')
   const [checked] = useState(false)
   const [itemName, setItemName] = useState('')
+  const [tripId, setTripId] = useState('')
+  const [tripChecklistId, setTripChecklistId] = useState('')
+  // const [tripChecklist, setTripChecklist] = useState([])
+  // console.log(tripChecklist)
+  useEffect(() => {
+    setTripId(props.tripId)
+    setTripChecklistId(props.tripChecklistId)
+    // setTripChecklist(props.tripChecklist)
+  }, [props.tripChecklist, props.tripChecklistId, props.tripId])
 
+  
+  
   const handleAddItem = async (e) => {
     try {
       e.preventDefault()
       const requestBody = {
         itemName: itemName,
         checked: checked,
-        category: category
+        category: category,
+        tripId: tripId,
+        tripChecklistId: tripChecklistId
       }
-      // const rememberCurrentUser = {
-      //   id: props.currentUser.id,
-      //   username: props.currentUser.username,
-      //   email: props.currentUser.email,
-      //   firstName: props.currentUser.firstName,
-      //   lastName: props.currentUser.lastName,
-      //   city: props.currentUser.city
-      // }
-        
-      await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.tripId}/tripChecklist/${props.tripChecklistId}`, requestBody)
-      // setCurrentUser(rememberCurrentUser)
+     
+      const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.tripId}/tripChecklist/${props.tripChecklistId}`, requestBody)
+      console.log(response, "🌶")
     } catch(error) {
         console.log(error)
     }
   }
 
+  const handleDeleteItem = async (e) => {
+    try{
 
-  // handleSubmit = e => {
-  //   e.preventDefault()
-  //   console.log(itemName)
-  // const newClothAndAcc = [...mapClothingAndAccessories, setNewIem] ?????
-  // }
-
-  // console.log(props)
-  // console.log(props.checklist)
-  // console.log(props.checklist.id)
-  // console.log(props.checklist._id)
-                  //    NEED to find :tripChecklistId and :itemId to hit delete route (trying to console.log it, but getting undefined)
-  // handleDelete = e => {
-  //   e.preventDefault()
-  //   await axios.delete(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.location.state.tripId}/tripChecklist/:tripChecklistId/items/:itemId`)
-  // }
+    } catch(error) {
+      console.log(error)
+    }
+    e.preventDefault()
+    const itemId = e.target[1].defaultValue
+    await axios.delete(`${process.env.REACT_APP_SERVER_URL}/users/${props.currentUser.id}/trips/${props.tripId}/tripChecklist/${props.tripChecklistId}/items/${itemId}`)
+  }
 
 
   
   const newChecklistArray = props.tripChecklist
+
   const filterClothingAndAccessories = newChecklistArray.filter(item => item.category === "clothing and accessories")
   const mapClothingAndAccessories = filterClothingAndAccessories.map((item, index) => {
+    const itemId = item._id
     return(
       <div key={index} className="list-item">
         <input type="checkbox"></input>
         <p>{item.itemName}</p>
-        {/* <form onSubmit={handleDelete}> */}
-        <form>
+        <form onSubmit={handleDeleteItem} >
           <input type="submit" value="x" className="delete-x"/>
+          <input className="item-index" type="hidden" value={itemId}/>
         </form>
       </div>
     )
   })
   const filterToiletries = newChecklistArray.filter(item => item.category === "toiletries")
   const mapToiletries = filterToiletries.map((item, index) => {
+    const itemId = item._id
     return(
       <div key={index} className="list-item">
         <input type="checkbox"></input>
         <p>{item.itemName}</p>
-        {/* <form onSubmit={handleDelete}> */}
-        <form>
+        <form onSubmit={handleDeleteItem} >
           <input type="submit" value="x" className="delete-x"/>
+          <input className="item-index" type="hidden" value={itemId}/>
         </form>
       </div>
     )
   })
   const filterMiscellaneous = newChecklistArray.filter(item => item.category === "miscellaneous")
   const mapMiscellaneous = filterMiscellaneous.map((item, index) => {
+    const itemId = item._id
     return(
       <div key={index} className="list-item">
         <input type="checkbox"></input>
         <p>{item.itemName}</p>
-        {/* <form onSubmit={handleDelete}> */}
-        <form>
+        <form onSubmit={handleDeleteItem} >
           <input type="submit" value="x" className="delete-x"/>
+          <input className="item-index" type="hidden" value={itemId}/>
         </form>
       </div>
     )
   })
   const filterTodo = newChecklistArray.filter(item => item.category === "to-do")
   const mapTodo = filterTodo.map((item, index) => {
+    const itemId = item._id
     return(
       <div key={index} className="list-item">
         <input type="checkbox"></input>
         <p>{item.itemName}</p>
-        <form >
+        <form onSubmit={handleDeleteItem} >
           <input type="submit" value="x" className="delete-x"/>
+          <input className="item-index" type="hidden" value={itemId}/>
         </form>
       </div>
     )
   })
-  // const toiletries
-  // const miscellaneous 
-  // const toDo
 
   return (
     <div className="checklist">
