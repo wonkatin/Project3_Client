@@ -1,6 +1,8 @@
 # **Trip Tracker**
 ## Description
 Trip Tracker is an app designed to help users stay organized while traveling. Through TT, users will be able to create a profile and save information about different trips that they are planning. Each trip will include all the tools necessary to stay organized, think ahead and find information relevant to their travel needs. Additionally, users will be able to save information throughout their trip, to reference later or share with friends. 
+### Server
+https://github.com/wonkatin/Project3_Server
 ## User Stories 
 ### MVP:
 - As a user, I want to be able to view a Homepage for the site.
